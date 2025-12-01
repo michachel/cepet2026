@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Vitrine</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+<style>
+body { margin:0; font-family:Arial, sans-serif; background:#f0f0f5; }
+header { position:fixed; top:0; left:0; right:0; padding:20px; display:flex; justify-content:space-between; align-items:center; transition: background 0.3s ease; z-index:1000; background: transparent; }
+header.scrolled { background: rgba(255,192,203,0.85); backdrop-filter: blur(5px); }
+.nav-links a { margin-left:20px; color:#000; text-decoration:none; font-weight:bold; }
+.burger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+.burger span { width:25px; height:3px; background:black; }
+@media(max-width:768px){
+.nav-links { display:none; position:absolute; top:60px; right:20px; background:white; padding:20px; border-radius:10px; flex-direction:column; }
+.nav-links a { margin:10px 0; }
+.burger { display:flex; }
+.nav-links.open { display:flex; }
+}
+.hero { margin-top:0; height:80vh; overflow:hidden; position:relative; clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%); }
+.slides { width:100%; height:100%; position:absolute; top:0; left:0; }
+.slide { width:100%; height:100%; position:absolute; top:0; left:0; background-size:cover; background-position:center; opacity:0; transition:opacity 0.8s ease; }
+.slide.active { opacity:1; animation: zoom 12s infinite; }
+@keyframes zoom { 0%{transform:scale(1);} 50%{transform:scale(1.05);} 100%{transform:scale(1);} }
+.hero-content { position:absolute; bottom:10%; left:50%; transform:translateX(-50%); text-align:center; color:white; text-shadow:0 0 10px rgba(0,0,0,0.7); transition: all 0.5s ease; }
+.hero-content button { margin-top:10px; padding:10px 20px; border:none; background:pink; cursor:pointer; border-radius:4px; font-weight:bold; transition:0.3s; }
+.hero-content button:hover { background:#ff66a3; }
+.dots { position:absolute; bottom:20px; width:100%; text-align:center; }
+.dot { height:12px; width:12px; margin:0 5px; background:white; border-radius:50%; display:inline-block; opacity:0.5; cursor:pointer; transition:0.3s; }
+.dot.active { opacity:1; }
+section { padding:60px 20px; }
+#candidat { display:flex; gap:40px; align-items:center; flex-wrap:wrap; background:#fff; border-radius:10px; max-width:1000px; margin:40px auto; box-shadow:0 5px 15px rgba(0,0,0,0.1); }
+#candidat img { width:300px; border-radius:10px; }
+.team-slider-container { position:relative; max-width:1000px; margin:40px auto; overflow:hidden; }
+.team-slider { display:flex; transition:transform 0.5s ease; }
+.team-slide { display:flex; gap:20px; min-width:100%; }
+.team-member { flex:1; text-align:center; background:#fff; padding:15px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+.team-member img { width:100%; border-radius:50%; }
+.team-nav { text-align:center; margin-top:10px; }
+.team-nav button { padding:5px 10px; margin:0 5px; border:none; background:pink; border-radius:5px; cursor:pointer; transition:0.3s; }
+.team-nav button:hover { background:#ff66a3; }
+.vision { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; max-width:900px; margin:40px auto; }
+.vision .postit { background:#fff; padding:20px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+.contact-section { text-align:center; margin:40px auto; max-width:700px; background:#fff; padding:30px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+.contact-section h2 { margin-bottom:20px; color:#000; }
+.contact-section a { padding:10px 20px; background:pink; border:none; border-radius:4px; font-weight:bold; cursor:pointer; transition:0.3s; text-decoration:none; color:#fff; }
+.contact-section a:hover { background:#ff66a3; }
+.actus-cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; max-width:900px; margin:40px auto; }
+.actus-card { background:#fff; padding:15px; border-radius:10px; box-shadow:0 2px 5px rgba(0,0,0,0.1); }
+.gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; margin-top:30px; }
+footer { background:#222; color:white; padding:40px 20px; display:flex; justify-content:space-between; flex-wrap:wrap; }
+footer .column { flex:1; min-width:200px; }
+footer a { color:pink; text-decoration:none; }
+</style>
+</head>
+<body>
+<header id="header">
+<div class="logo">LOGO</div>
+<nav class="nav-links">
+<a href="#">Accueil</a>
+<a href="#programme">Programme</a>
+<a href="#candidat">Candidat</a>
+<a href="#equipe">Équipe</a>
+<a href="#contact1">Contact</a>
+</nav>
+<div class="burger" id="burger"><span></span><span></span><span></span></div>
+</header>
+
+<section class="hero">
+<div class="slides">
+<div class="slide active" style="background-image:url('https://picsum.photos/seed/hero1/1600/900')"></div>
+<div class="slide" style="background-image:url('https://picsum.photos/seed/hero2/1600/900')"></div>
+<div class="slide" style="background-image:url('https://picsum.photos/seed/hero3/1600/900')"></div>
+</div>
+<div class="hero-content" id="hero-text"><h1>Notre candidat principal</h1><button>Lire le programme</button></div>
+<div class="dots"><span class="dot active" data-index="0"></span><span class="dot" data-index="1"></span><span class="dot" data-index="2"></span></div>
+</section>
+
+<section id="candidat" data-aos="fade-up">
+<img src="https://picsum.photos/seed/candidat/500/600" alt="Candidat">
+<div style="flex:1;"><h2>Notre candidat</h2><p>Notre candidat possède une expérience solide en gestion locale et s'engage pour le bien-être de tous les habitants.</p></div>
+</section>
+
+<section id="contact1" class="contact-section" data-aos="fade-up">
+<h2>Contacter le candidat</h2>
+<a href="contact.html">Lire le programme</a>
+</section>
+
+<section id="equipe" data-aos="fade-up">
+<h2 style="text-align:center;">Notre équipe</h2>
+<div class="team-slider-container">
+<div class="team-slider" id="teamSlider"></div>
+<div class="team-nav"><button id="prevTeam">◀</button><button id="nextTeam">▶</button></div>
+</div>
+</section>
+
+<section id="contactEquipe" class="contact-section" data-aos="fade-up">
+<h2>Vous voulez contacter un membre de l'équipe ?</h2>
+<a href="contact.html">Contacter</a>
+</section>
+
+<section id="programme" style="background:#f7f7f7;" data-aos="fade-up">
+<h2 style="text-align:center;">Notre vision</h2>
+<div class="vision">
+<div class="postit"><h3>Enfance</h3><p>Favoriser l'éducation et les activités pour les enfants.</p></div>
+<div class="postit"><h3>Famille</h3><p>Renforcer le soutien et les services aux familles.</p></div>
+<div class="postit"><h3>Urbanisme</h3><p>Améliorer la planification et l'aménagement urbain.</p></div>
+<div class="postit"><h3>Sécurité</h3><p>Assurer la sécurité et la tranquillité de tous.</p></div>
+<div class="postit"><h3>Vie associative</h3><p>Encourager la participation et la vie communautaire.</p></div>
+<div class="postit"><h3>Économie</h3><p>Stimuler l'économie locale et l'emploi.</p></div>
+</div>
+</section>
+
+<section id="contactVision" class="contact-section" data-aos="fade-up">
+<h2>Vous avez des projets à nous partager ?</h2>
+<a href="contact.html">Contacter</a>
+</section>
+
+<section id="actus" data-aos="fade-up">
+<h2 style="text-align:center;">Actualités</h2>
+<div class="actus-cards" id="actusCards"></div>
+<div style="text-align:center; margin-top:20px;"><a href="#" style="padding:10px 20px; background:pink; border-radius:4px; text-decoration:none; color:#fff;">Voir toutes les actualités</a></div>
+</section>
+
+<section id="galerie" style="background:#fafafa;" data-aos="fade-up">
+<h2 style="text-align:center;">Galerie photo</h2>
+<div class="gallery-grid">
+<img src="https://picsum.photos/seed/gallery1/800/600" style="width:100%; border-radius:10px;">
+<img src="https://picsum.photos/seed/gallery2/800/600" style="width:100%; border-radius:10px;">
+<img src="https://picsum.photos/seed/gallery3/800/600" style="width:100%; border-radius:10px;">
+</div>
+<div style="text-align:center; margin-top:20px;"><a href="#" style="padding:10px 20px; background:pink; border-radius:4px; text-decoration:none; color:#fff;">Voir la galerie complète</a></div>
+</section>
+
+<footer data-aos="fade-up">
+<div class="column" style="text-align:left;"><h3>Liste municipale</h3><p>Nom, adresse, infos...</p></div>
+<div class="column" style="text-align:right;"><h3>Réseaux sociaux</h3><p><a href="#">Facebook</a> | <a href="#">Instagram</a></p><p><a href="#">Mentions légales</a></p></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+AOS.init({ duration: 800 });
+const header=document.getElementById('header');
+window.addEventListener('scroll',()=>{ header.classList.toggle('scrolled', window.scrollY>50); });
+const burger=document.getElementById('burger');
+const nav=document.querySelector('.nav-links');
+burger.addEventListener('click',()=>{ nav.classList.toggle('open'); });
+let index=0;
+const slides=document.querySelectorAll('.slide');
+const dots=document.querySelectorAll('.dot');
+const heroText=document.getElementById('hero-text');
+const texts=[{title:'Notre candidat principal', button:'Lire le programme'},{title:'Une équipe exceptionnelle', button:'Lire le programme'},{title:'Tous aux urnes', button:'Comment voter'}];
+function showSlide(i){ slides.forEach(s=>s.classList.remove('active')); dots.forEach(d=>d.classList.remove('active')); slides[i].classList.add('active'); dots[i].classList.add('active'); heroText.innerHTML=`<h1>${texts[i].title}</h1><button>${texts[i].button}</button>`; index=i; }
+setInterval(()=>{ showSlide((index+1)%slides.length); },4000);
+dots.forEach(dot=>{ dot.addEventListener('click',()=>showSlide(parseInt(dot.dataset.index))); });
+const teamMembers=[];
+for(let i=1;i<=21;i++){ teamMembers.push({name:`Nom ${i}`, role:`Rôle ${i}`, img:`https://picsum.photos/seed/team${i}/300/300`, desc:`Description du membre ${i}.`}); }
+const teamSlider=document.getElementById('teamSlider');
+let teamIndex=0;
+function renderTeam(){ let html=''; for(let i=0;i<teamMembers.length;i+=3){ html+='<div class="team-slide">'; teamMembers.slice(i,i+3).forEach(m=>{ html+=`<div class="team-member"><img src="${m.img}"><h3>${m.name}</h3><p>${m.role}</p><p>${m.desc}</p></div>`; }); html+='</div>'; } teamSlider.innerHTML=html; updateTeamSlider(); }
+function updateTeamSlider(){ teamSlider.style.transform=`translateX(-${teamIndex*100}%)`; }
+renderTeam();
+document.getElementById('prevTeam').addEventListener('click',()=>{ teamIndex=(teamIndex-1+Math.ceil(teamMembers.length/3))%Math.ceil(teamMembers.length/3); updateTeamSlider(); });
+document.getElementById('nextTeam').addEventListener('click',()=>{ teamIndex=(teamIndex+1)%Math.ceil(teamMembers.length/3); updateTeamSlider(); });
+const actus=document.getElementById('actusCards');
+for(let i=1;i<=3;i++){ const div=document.createElement('div'); div.className='actus-card'; div.innerHTML=`<h3>Actualité ${i}</h3><p>Résumé de l'actualité ${i}.</p>`; actus.appendChild(div); }
+</script>
+</body>
+</html>

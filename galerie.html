@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Galerie d'images</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+<style>
+body { margin:0; font-family:Arial, sans-serif; background:#f0f0f5; }
+header { position:fixed; top:0; left:0; right:0; padding:20px; display:flex; justify-content:space-between; align-items:center; transition: background 0.3s ease; z-index:1000; background: transparent; }
+header.scrolled { background: rgba(255,192,203,0.85); backdrop-filter: blur(5px); }
+.nav-links a { margin-left:20px; color:#000; text-decoration:none; font-weight:bold; }
+.burger { display:none; flex-direction:column; gap:5px; cursor:pointer; }
+.burger span { width:25px; height:3px; background:black; }
+@media(max-width:768px){
+.nav-links { display:none; position:absolute; top:60px; right:20px; background:white; padding:20px; border-radius:10px; flex-direction:column; }
+.nav-links a { margin:10px 0; }
+.burger { display:flex; }
+.nav-links.open { display:flex; }
+}
+section { padding:60px 20px; max-width:900px; margin:100px auto 40px auto; }
+section h2 { margin-bottom:20px; color:#000; text-align:center; }
+.gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; }
+.gallery-grid img { width:100%; border-radius:10px; }
+footer { background:#222; color:white; padding:40px 20px; display:flex; justify-content:space-between; flex-wrap:wrap; }
+footer .column { flex:1; min-width:200px; }
+footer a { color:pink; text-decoration:none; }
+</style>
+</head>
+<body>
+<header id="header">
+<div class="logo">LOGO</div>
+<nav class="nav-links">
+<a href="index.html">Accueil</a>
+<a href="index.html#programme">Programme</a>
+<a href="index.html#candidat">Candidat</a>
+<a href="index.html#equipe">Équipe</a>
+<a href="contact.html">Contact</a>
+</nav>
+<div class="burger" id="burger"><span></span><span></span><span></span></div>
+</header>
+
+<section data-aos="fade-up">
+<h2>Galerie photo</h2>
+<div class="gallery-grid" id="galleryGrid"></div>
+</section>
+
+<footer data-aos="fade-up">
+<div class="column" style="text-align:left;"><h3>Liste municipale</h3><p>Nom, adresse, infos...</p></div>
+<div class="column" style="text-align:right;"><h3>Réseaux sociaux</h3><p><a href="#">Facebook</a> | <a href="#">Instagram</a></p><p><a href="mentions-legales.html">Mentions légales</a></p></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+AOS.init({ duration: 800 });
+const header=document.getElementById('header');
+window.addEventListener('scroll',()=>{ header.classList.toggle('scrolled', window.scrollY>50); });
+const burger=document.getElementById('burger');
+const nav=document.querySelector('.nav-links');
+burger.addEventListener('click',()=>{ nav.classList.toggle('open'); });
+const gallery=document.getElementById('galleryGrid');
+for(let i=1;i<=9;i++){ const img=document.createElement('img'); img.src=`https://picsum.photos/seed/gallery${i}/600/400`; gallery.appendChild(img); }
+</script>
+</body>
+</html>

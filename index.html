@@ -64,42 +64,55 @@
 <div class="separator"></div>
 <p class="vision-description">Découvrez nos principales propositions</p>
 <div class="vision">
-<div class="postit"><h3><span class="postit-icon">◆</span>Transparence</h3><p>Favoriser l'éducation et les activités pour les enfants.</p></div>
-<div class="postit"><h3><span class="postit-icon">◆</span>Vivre ensemble</h3><p>Renforcer le soutien et les services aux familles.</p></div>
-<div class="postit"><h3><span class="postit-icon">◆</span>Enfance, jeunesse</h3><p>Améliorer la planification et l'aménagement urbain.</p></div>
-<div class="postit"><h3><span class="postit-icon">◆</span>Qualité de vie</h3><p>Assurer la sécurité et la tranquillité de tous.</p></div>
-<div class="postit"><h3><span class="postit-icon">◆</span>Communication</h3><p>Encourager la participation et la vie communautaire.</p></div>
-<div class="postit"><h3><span class="postit-icon">◆</span>Famille</h3><p>Stimuler l'économie locale et l'emploi.</p></div>
+<div class="postit"><h3><span class="postit-icon">◆</span>Transparence</h3><p>Nous nous engageons à rendre tous les processus décisionnels accessibles et compréhensibles pour chaque citoyen. Chaque décision sera expliquée clairement et les comptes seront publiés régulièrement. La transparence est la base de la confiance entre les élus et les habitants.</p></div>
+<div class="postit"><h3><span class="postit-icon">◆</span>Vivre ensemble</h3><p>Notre commune doit être un lieu où chacun trouve sa place, quels que soient son âge, son origine ou sa situation. Nous favoriserons les rencontres intergénérationnelles et les échanges culturels. Le respect mutuel et la solidarité seront nos valeurs fondamentales.</p></div>
+<div class="postit"><h3><span class="postit-icon">◆</span>Enfance, jeunesse</h3><p>Investir dans l'éducation et les activités pour nos jeunes est une priorité absolue. Nous développerons les infrastructures scolaires et périscolaires. Des activités variées seront proposées pour épanouir chaque enfant et adolescent de notre commune.</p></div>
+<div class="postit"><h3><span class="postit-icon">◆</span>Qualité de vie</h3><p>Améliorer le quotidien de tous les habitants passe par un environnement propre, sécurisé et agréable. Nous travaillerons sur l'aménagement des espaces publics, la propreté des rues et la tranquillité des quartiers. Chaque habitant doit se sentir bien dans sa commune.</p></div>
+<div class="postit"><h3><span class="postit-icon">◆</span>Communication</h3><p>Une communication claire et régulière avec les habitants est essentielle. Nous mettrons en place des canaux d'information modernes et accessibles. Les conseils municipaux seront ouverts et les projets seront présentés avant leur réalisation pour recueillir vos avis.</p></div>
+<div class="postit"><h3><span class="postit-icon">◆</span>Famille</h3><p>Les familles sont au cœur de notre action municipale. Nous renforcerons les services de soutien à la parentalité et développerons les infrastructures adaptées. L'accueil des jeunes enfants et l'accompagnement des familles seront nos priorités pour créer un environnement favorable à tous.</p></div>
 </div>
 <div style="text-align:center; margin-top:30px;"><a href="programme.html" style="padding:10px 20px; background:#f13681; border-radius:4px; text-decoration:none; color:#fff; font-weight:bold;">Voir le programme complet</a></div>
 </section>
 
 <section id="contactVision" class="contact-section" data-aos="fade-up">
-<h2>Vous avez des projets à nous partager ?</h2>
+<h2>Vous avez des idées à nous partager ?</h2>
 <a href="contact.html">Nous contacter</a>
 </section>
 
 <section id="actus" data-aos="fade-up">
 <h2 style="text-align:center;">Actualités</h2>
 <div class="separator"></div>
-<div class="actus-cards" id="actusCards"></div>
-<div style="text-align:center; margin-top:20px;"><a href="#" style="padding:10px 20px; background:#f13681; border-radius:4px; text-decoration:none; color:#fff;">Voir toutes les actualités</a></div>
+<p class="vision-description">Suivez nos dernières actualités</p>
+<div class="actus-slider-container">
+<div class="actus-slider" id="actusSlider"></div>
+<div class="actus-nav"><button id="prevActus">◀</button><button id="nextActus">▶</button></div>
+</div>
 </section>
 
 <section id="galerie" style="background:#fafafa;" data-aos="fade-up">
 <h2 style="text-align:center;">Galerie photo</h2>
+<div class="separator"></div>
 <div class="gallery-grid">
 <img src="https://picsum.photos/seed/gallery1/800/600" style="width:100%; border-radius:10px;">
 <img src="https://picsum.photos/seed/gallery2/800/600" style="width:100%; border-radius:10px;">
 <img src="https://picsum.photos/seed/gallery3/800/600" style="width:100%; border-radius:10px;">
 </div>
-<div style="text-align:center; margin-top:20px;"><a href="#" style="padding:10px 20px; background:#f13681; border-radius:4px; text-decoration:none; color:#fff;">Voir la galerie complète</a></div>
 </section>
 
 <footer data-aos="fade-up">
 <div class="column" style="text-align:left;"><h3>Liste municipale</h3><p>Nom, adresse, infos...</p></div>
 <div class="column" style="text-align:right;"><h3>Réseaux sociaux</h3><p><a href="#">Facebook</a> | <a href="#">Instagram</a></p><p><a href="#">Mentions légales</a></p></div>
 </footer>
+
+<div id="actusModal" class="modal">
+<div class="modal-content">
+<span class="close" id="closeModal">&times;</span>
+<img class="modal-image" src="" alt="">
+<h3 class="modal-title"></h3>
+<p class="modal-text"></p>
+<div class="modal-footer"><span class="modal-date"></span></div>
+</div>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script>
@@ -134,8 +147,23 @@ renderTeam();
 document.getElementById('prevTeam').addEventListener('click',()=>{ teamIndex=(teamIndex-1+Math.ceil(teamMembers.length/3))%Math.ceil(teamMembers.length/3); updateTeamSlider(); });
 document.getElementById('nextTeam').addEventListener('click',()=>{ teamIndex=(teamIndex+1)%Math.ceil(teamMembers.length/3); updateTeamSlider(); });
 setInterval(()=>{ teamIndex=(teamIndex+1)%Math.ceil(teamMembers.length/3); updateTeamSlider(); },4000);
-const actus=document.getElementById('actusCards');
-for(let i=1;i<=3;i++){ const div=document.createElement('div'); div.className='actus-card'; div.innerHTML=`<h3>Actualité ${i}</h3><p>Résumé de l'actualité ${i}.</p>`; actus.appendChild(div); }
+const actusData=[
+{title:'Réunion publique avec les habitants', text:'Notre équipe a rencontré de nombreux habitants lors de notre dernière réunion publique. Les échanges ont été riches et constructifs. Nous avons pu recueillir vos attentes et vos préoccupations pour mieux orienter notre programme. Ces moments de dialogue sont essentiels pour construire ensemble l\'avenir de notre commune.', date:'15 décembre 2024', img:'https://picsum.photos/seed/actus1/400/250'},
+{title:'Rénovation du centre-ville', text:'Le projet de rénovation du centre-ville avance à grands pas. Les travaux de réaménagement des espaces publics commenceront au printemps prochain. Cette initiative vise à améliorer le cadre de vie de tous les habitants et à dynamiser le commerce local. Nous vous tiendrons informés régulièrement de l\'avancement des travaux.', date:'10 décembre 2024', img:'https://picsum.photos/seed/actus2/400/250'},
+{title:'Nouvelle saison des activités associatives', text:'La nouvelle saison des activités associatives démarre avec de nombreuses nouveautés. De nouveaux clubs et ateliers sont proposés pour tous les âges. Ces activités renforcent le lien social et permettent à chacun de s\'épanouir. N\'hésitez pas à vous renseigner auprès de la mairie pour découvrir toutes les possibilités.', date:'5 décembre 2024', img:'https://picsum.photos/seed/actus3/400/250'}
+];
+const actusSlider=document.getElementById('actusSlider');
+let actusIndex=0;
+function truncateText(text, maxLength){ return text.length>maxLength?text.substring(0,maxLength)+'...':text; }
+function renderActus(){ let html=''; if(actusData.length>3){ for(let i=0;i<actusData.length;i+=3){ html+='<div class="actus-slide"><div class="actus-cards">'; actusData.slice(i,i+3).forEach((article,idx)=>{ const globalIndex=i+idx; html+=`<div class="actus-card"><img src="${article.img}" alt="${article.title}"><h3>${article.title}</h3><p class="actus-description">${truncateText(article.text,150)}</p><div class="actus-footer"><span class="actus-date">${article.date}</span><a href="#" class="actus-link" data-index="${globalIndex}">Lire l'article</a></div></div>`; }); html+='</div></div>'; } actusSlider.innerHTML=html; updateActusSlider(); } else { html='<div class="actus-slide"><div class="actus-cards">'; actusData.forEach((article,idx)=>{ html+=`<div class="actus-card"><img src="${article.img}" alt="${article.title}"><h3>${article.title}</h3><p class="actus-description">${truncateText(article.text,150)}</p><div class="actus-footer"><span class="actus-date">${article.date}</span><a href="#" class="actus-link" data-index="${idx}">Lire l'article</a></div></div>`; }); html+='</div></div>'; actusSlider.innerHTML=html; } document.querySelectorAll('.actus-link').forEach(link=>{ link.addEventListener('click',(e)=>{ e.preventDefault(); const index=parseInt(link.dataset.index); openActusModal(index); }); }); }
+function updateActusSlider(){ actusSlider.style.transform=`translateX(-${actusIndex*100}%)`; }
+renderActus();
+if(actusData.length>3){ document.getElementById('prevActus').addEventListener('click',()=>{ actusIndex=(actusIndex-1+Math.ceil(actusData.length/3))%Math.ceil(actusData.length/3); updateActusSlider(); }); document.getElementById('nextActus').addEventListener('click',()=>{ actusIndex=(actusIndex+1)%Math.ceil(actusData.length/3); updateActusSlider(); }); setInterval(()=>{ actusIndex=(actusIndex+1)%Math.ceil(actusData.length/3); updateActusSlider(); },4000); } else { document.querySelector('.actus-nav').style.display='none'; }
+function openActusModal(index){ const modal=document.getElementById('actusModal'); const article=actusData[index]; modal.querySelector('.modal-image').src=article.img; modal.querySelector('.modal-image').alt=article.title; modal.querySelector('.modal-title').textContent=article.title; modal.querySelector('.modal-text').textContent=article.text; modal.querySelector('.modal-date').textContent=article.date; modal.style.display='flex'; }
+function closeActusModal(){ document.getElementById('actusModal').style.display='none'; }
+document.getElementById('closeModal').addEventListener('click',closeActusModal);
+document.getElementById('actusModal').addEventListener('click',(e)=>{ if(e.target.id==='actusModal'){ closeActusModal(); } });
+document.addEventListener('keydown',(e)=>{ if(e.key==='Escape'){ closeActusModal(); } });
 </script>
 </body>
 </html>

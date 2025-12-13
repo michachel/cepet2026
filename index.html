@@ -6,6 +6,7 @@
 <title>Site Vitrine</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 <link rel="stylesheet" href="css/style.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
 </head>
 <body>
 <header id="header">
@@ -39,11 +40,16 @@
 <div class="candidat-content">
 <img src="https://picsum.photos/seed/candidat/500/600" alt="Candidat">
 <div class="candidat-text">
-<p class="candidat-description">Ma candidature</p>
+<p class="candidat-description">Jean-Michel Fougeray</p>
 <p class="candidat-intro">Ma candidature s'inscrit dans une tradition communale où l'on vote pour une personne et non pour un parti. Je veux être cette personne ! La liste que j'ai l'honneur de conduire est composée de femmes et d'hommes qui, comme vous, connaissent les réalités du quotidien.<br><br>Nous revendiquons les valeurs de la République. Notre cité gagnante doit avoir l'ambition de se hisser au plus haut rang de la métropole.</p>
 </div>
 </div>
 </section>
+
+<section id="contactCandidat" class="contact-section" data-aos="fade-up">
+    <h2>Vous désirez me rencontrer ou me faire parvenir des interrogations/encouragements ?</h2>
+    <a href="contact.html">Me contacter</a>
+    </section>
 
 <section id="equipe" data-aos="fade-up">
 <h2 style="text-align:center;">Ma fabuleuse équipe</h2>
@@ -90,14 +96,17 @@
 </section>
 
 <section id="galerie" style="background:#fafafa;" data-aos="fade-up">
-<h2 style="text-align:center;">Galerie photo</h2>
-<div class="separator"></div>
-<div class="gallery-grid">
-<img src="https://picsum.photos/seed/gallery1/800/600" style="width:100%; border-radius:10px;">
-<img src="https://picsum.photos/seed/gallery2/800/600" style="width:100%; border-radius:10px;">
-<img src="https://picsum.photos/seed/gallery3/800/600" style="width:100%; border-radius:10px;">
-</div>
-</section>
+    <h2 style="text-align:center;">Galerie photo</h2>
+    <div class="separator"></div>
+    <div class="gallery-slider-container">
+      <div class="gallery-slider" id="gallerySlider"></div>
+      <div class="gallery-nav">
+        <button id="prevGallery">◀</button>
+        <button id="nextGallery">▶</button>
+      </div>
+    </div>
+  </section>
+  
 
 <footer data-aos="fade-up">
 <div class="column" style="text-align:left;"><h3>Liste municipale</h3><p>Nom, adresse, infos...</p></div>
@@ -125,6 +134,7 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 <script src="script/main.js"></script>
 <script>
     AOS.init({ duration: 800 });

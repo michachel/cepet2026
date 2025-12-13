@@ -33,17 +33,21 @@
 </section>
 
 <section id="candidat" data-aos="fade-up">
+<h2>En savoir plus sur moi</h2>
+<div class="separator"></div>
+<p class="presentation-text">Notre candidat possède une expérience solide en gestion locale et s'engage pour le bien-être de tous les habitants.</p>
+<div class="candidat-content">
 <img src="https://picsum.photos/seed/candidat/500/600" alt="Candidat">
-<div style="flex:1;"><h2>Notre candidat</h2><p>Notre candidat possède une expérience solide en gestion locale et s'engage pour le bien-être de tous les habitants.</p></div>
-</section>
-
-<section id="contact1" class="contact-section" data-aos="fade-up">
-<h2>Contacter le candidat</h2>
-<a href="contact.html">Lire le programme</a>
+<div class="candidat-text">
+<p class="candidat-description">Ma candidature</p>
+<p class="candidat-intro">Ma candidature s'inscrit dans une tradition communale où l'on vote pour une personne et non pour un parti. Je veux être cette personne ! La liste que j'ai l'honneur de conduire est composée de femmes et d'hommes qui, comme vous, connaissent les réalités du quotidien.<br><br>Nous revendiquons les valeurs de la République. Notre cité gagnante doit avoir l'ambition de se hisser au plus haut rang de la métropole.</p>
+</div>
+</div>
 </section>
 
 <section id="equipe" data-aos="fade-up">
-<h2 style="text-align:center;">Notre équipe</h2>
+<h2 style="text-align:center;">Ma fabuleuse équipe</h2>
+<div class="separator"></div>
 <div class="team-slider-container">
 <div class="team-slider" id="teamSlider"></div>
 <div class="team-nav"><button id="prevTeam">◀</button><button id="nextTeam">▶</button></div>
@@ -52,28 +56,32 @@
 
 <section id="contactEquipe" class="contact-section" data-aos="fade-up">
 <h2>Vous voulez contacter un membre de l'équipe ?</h2>
-<a href="contact.html">Contacter</a>
+<a href="contact.html">Nous contacter</a>
 </section>
 
 <section id="programme" style="background:#f7f7f7;" data-aos="fade-up">
-<h2 style="text-align:center;">Notre vision</h2>
+<h2 style="text-align:center;">Notre vision et notre mission</h2>
+<div class="separator"></div>
+<p class="vision-description">Découvrez nos principales propositions</p>
 <div class="vision">
-<div class="postit"><h3>Transparence</h3><p>Favoriser l'éducation et les activités pour les enfants.</p></div>
-<div class="postit"><h3>Vivre ensemble</h3><p>Renforcer le soutien et les services aux familles.</p></div>
-<div class="postit"><h3>Enfance, jeunesse</h3><p>Améliorer la planification et l'aménagement urbain.</p></div>
-<div class="postit"><h3>Qualité de vie</h3><p>Assurer la sécurité et la tranquillité de tous.</p></div>
-<div class="postit"><h3>Communication</h3><p>Encourager la participation et la vie communautaire.</p></div>
-<div class="postit"><h3>Famille</h3><p>Stimuler l'économie locale et l'emploi.</p></div>
+<div class="postit"><h3><span class="postit-icon">◆</span>Transparence</h3><p>Favoriser l'éducation et les activités pour les enfants.</p></div>
+<div class="postit"><h3><span class="postit-icon">◆</span>Vivre ensemble</h3><p>Renforcer le soutien et les services aux familles.</p></div>
+<div class="postit"><h3><span class="postit-icon">◆</span>Enfance, jeunesse</h3><p>Améliorer la planification et l'aménagement urbain.</p></div>
+<div class="postit"><h3><span class="postit-icon">◆</span>Qualité de vie</h3><p>Assurer la sécurité et la tranquillité de tous.</p></div>
+<div class="postit"><h3><span class="postit-icon">◆</span>Communication</h3><p>Encourager la participation et la vie communautaire.</p></div>
+<div class="postit"><h3><span class="postit-icon">◆</span>Famille</h3><p>Stimuler l'économie locale et l'emploi.</p></div>
 </div>
+<div style="text-align:center; margin-top:30px;"><a href="programme.html" style="padding:10px 20px; background:#f13681; border-radius:4px; text-decoration:none; color:#fff; font-weight:bold;">Voir le programme complet</a></div>
 </section>
 
 <section id="contactVision" class="contact-section" data-aos="fade-up">
 <h2>Vous avez des projets à nous partager ?</h2>
-<a href="contact.html">Contacter</a>
+<a href="contact.html">Nous contacter</a>
 </section>
 
 <section id="actus" data-aos="fade-up">
 <h2 style="text-align:center;">Actualités</h2>
+<div class="separator"></div>
 <div class="actus-cards" id="actusCards"></div>
 <div style="text-align:center; margin-top:20px;"><a href="#" style="padding:10px 20px; background:#f13681; border-radius:4px; text-decoration:none; color:#fff;">Voir toutes les actualités</a></div>
 </section>
@@ -125,6 +133,7 @@ function updateTeamSlider(){ teamSlider.style.transform=`translateX(-${teamIndex
 renderTeam();
 document.getElementById('prevTeam').addEventListener('click',()=>{ teamIndex=(teamIndex-1+Math.ceil(teamMembers.length/3))%Math.ceil(teamMembers.length/3); updateTeamSlider(); });
 document.getElementById('nextTeam').addEventListener('click',()=>{ teamIndex=(teamIndex+1)%Math.ceil(teamMembers.length/3); updateTeamSlider(); });
+setInterval(()=>{ teamIndex=(teamIndex+1)%Math.ceil(teamMembers.length/3); updateTeamSlider(); },4000);
 const actus=document.getElementById('actusCards');
 for(let i=1;i<=3;i++){ const div=document.createElement('div'); div.className='actus-card'; div.innerHTML=`<h3>Actualité ${i}</h3><p>Résumé de l'actualité ${i}.</p>`; actus.appendChild(div); }
 </script>

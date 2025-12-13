@@ -13,9 +13,11 @@
 <nav class="nav-links">
 <a href="#">Accueil</a>
 <a href="#programme">Programme</a>
-<a href="#candidat">Candidat</a>
-<a href="#equipe">Équipe</a>
-<a href="#contact1">Contact</a>
+<a href="#Équipe">Équipe</a>
+<a href="#Actualités">Actualités</a>
+<a href="#Agenda">Agenda</a>
+<a href="#Photos">Photos</a>
+<a href="#contact">contact</a>
 </nav>
 <div class="burger" id="burger"><span></span><span></span><span></span></div>
 </header>
@@ -56,12 +58,12 @@
 <section id="programme" style="background:#f7f7f7;" data-aos="fade-up">
 <h2 style="text-align:center;">Notre vision</h2>
 <div class="vision">
-<div class="postit"><h3>Enfance</h3><p>Favoriser l'éducation et les activités pour les enfants.</p></div>
-<div class="postit"><h3>Famille</h3><p>Renforcer le soutien et les services aux familles.</p></div>
-<div class="postit"><h3>Urbanisme</h3><p>Améliorer la planification et l'aménagement urbain.</p></div>
-<div class="postit"><h3>Sécurité</h3><p>Assurer la sécurité et la tranquillité de tous.</p></div>
-<div class="postit"><h3>Vie associative</h3><p>Encourager la participation et la vie communautaire.</p></div>
-<div class="postit"><h3>Économie</h3><p>Stimuler l'économie locale et l'emploi.</p></div>
+<div class="postit"><h3>Transparence</h3><p>Favoriser l'éducation et les activités pour les enfants.</p></div>
+<div class="postit"><h3>Vivre ensemble</h3><p>Renforcer le soutien et les services aux familles.</p></div>
+<div class="postit"><h3>Enfance, jeunesse</h3><p>Améliorer la planification et l'aménagement urbain.</p></div>
+<div class="postit"><h3>Qualité de vie</h3><p>Assurer la sécurité et la tranquillité de tous.</p></div>
+<div class="postit"><h3>Communication</h3><p>Encourager la participation et la vie communautaire.</p></div>
+<div class="postit"><h3>Famille</h3><p>Stimuler l'économie locale et l'emploi.</p></div>
 </div>
 </section>
 
@@ -73,7 +75,7 @@
 <section id="actus" data-aos="fade-up">
 <h2 style="text-align:center;">Actualités</h2>
 <div class="actus-cards" id="actusCards"></div>
-<div style="text-align:center; margin-top:20px;"><a href="#" style="padding:10px 20px; background:pink; border-radius:4px; text-decoration:none; color:#fff;">Voir toutes les actualités</a></div>
+<div style="text-align:center; margin-top:20px;"><a href="#" style="padding:10px 20px; background:#f13681; border-radius:4px; text-decoration:none; color:#fff;">Voir toutes les actualités</a></div>
 </section>
 
 <section id="galerie" style="background:#fafafa;" data-aos="fade-up">
@@ -83,7 +85,7 @@
 <img src="https://picsum.photos/seed/gallery2/800/600" style="width:100%; border-radius:10px;">
 <img src="https://picsum.photos/seed/gallery3/800/600" style="width:100%; border-radius:10px;">
 </div>
-<div style="text-align:center; margin-top:20px;"><a href="#" style="padding:10px 20px; background:pink; border-radius:4px; text-decoration:none; color:#fff;">Voir la galerie complète</a></div>
+<div style="text-align:center; margin-top:20px;"><a href="#" style="padding:10px 20px; background:#f13681; border-radius:4px; text-decoration:none; color:#fff;">Voir la galerie complète</a></div>
 </section>
 
 <footer data-aos="fade-up">
@@ -103,10 +105,17 @@ let index=0;
 const slides=document.querySelectorAll('.slide');
 const dots=document.querySelectorAll('.dot');
 const heroText=document.getElementById('hero-text');
-const texts=[{title:'Notre candidat principal', button:'Lire le programme'},{title:'Une équipe exceptionnelle', button:'Lire le programme'},{title:'Tous aux urnes', button:'Comment voter'}];
+const texts=[{title:'Jean-Michel Fougeray', button:'Découvrez mon équipe'},{title:'Un nouvel air pour notre commune', button:'Voir notre vision'},{title:'Tous ensemble aux municipales', button:'On se donne rendez-vous en 2026'}];
 function showSlide(i){ slides.forEach(s=>s.classList.remove('active')); dots.forEach(d=>d.classList.remove('active')); slides[i].classList.add('active'); dots[i].classList.add('active'); heroText.innerHTML=`<h1>${texts[i].title}</h1><button>${texts[i].button}</button>`; index=i; }
+showSlide(0);
 setInterval(()=>{ showSlide((index+1)%slides.length); },4000);
 dots.forEach(dot=>{ dot.addEventListener('click',()=>showSlide(parseInt(dot.dataset.index))); });
+heroText.addEventListener('click',(e)=>{ 
+if(e.target.tagName==='BUTTON'){
+if(e.target.textContent==='Découvrez mon équipe'){ window.location.href='monequipe.html'; }
+else if(e.target.textContent==='Voir notre vision'){ window.location.href='programme.html'; }
+}
+});
 const teamMembers=[];
 for(let i=1;i<=21;i++){ teamMembers.push({name:`Nom ${i}`, role:`Rôle ${i}`, img:`https://picsum.photos/seed/team${i}/300/300`, desc:`Description du membre ${i}.`}); }
 const teamSlider=document.getElementById('teamSlider');

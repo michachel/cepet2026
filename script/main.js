@@ -17,9 +17,9 @@ function initHeroSlider() {
     const dots = document.querySelectorAll('.dot');
     const heroText = document.getElementById('hero-text');
     const texts = [
-        { title: 'Jean-Michel Fougeray', button: 'Découvrez mon équipe' },
-        { title: 'Un nouvel air pour notre commune', button: 'Voir notre vision' },
-        { title: 'Tous ensemble aux municipales', button: 'On se donne rendez-vous en 2026' }
+        { title: 'Jean-Michel Fougeray', subtitle: 'Le nouvel Hokage !', button: 'Découvrez mon équipe' },
+        { title: 'Vers un nouveau chemin', subtitle: 'Pour une vision durable de Cépet', button: 'Notre vision' },
+        { title: 'Tous ensemble aux municipales', subtitle: 'On se donne rendez-vous en 2026 !', button: 'Nos actus' }
     ];
 
     let index = 0;
@@ -29,7 +29,7 @@ function initHeroSlider() {
         dots.forEach(d => d.classList.remove('active'));
         slides[i].classList.add('active');
         dots[i].classList.add('active');
-        heroText.innerHTML = `<h1>${texts[i].title}</h1><button>${texts[i].button}</button>`;
+        heroText.innerHTML = `<h1>${texts[i].title}</h1><p>${texts[i].subtitle}</p><button>${texts[i].button}</button>`;
         index = i;
     }
 
@@ -49,6 +49,15 @@ function initHeroSlider() {
 }
 
 // === Team Slider ===
+const teamMembers = [
+    {
+      name: "Jean Dupont",
+      role: "Responsable finances",
+      img: "https://picsum.photos/seed/team1/300/300",
+      desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
+    },
+    // … jusqu’à 21 membres
+  ];
 function initTeamSlider() {
     const teamMembers = Array.from({ length: 21 }, (_, i) => ({
         name: `Nom ${i + 1}`,
@@ -95,6 +104,10 @@ function initTeamSlider() {
     }, 4000);
 }
 
+function truncateText(text, maxLength) {
+    return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
+}
+
 // === Actus Slider & Modal ===
 function initActus() {
     const actusData = [
@@ -106,9 +119,6 @@ function initActus() {
     const actusSlider = document.getElementById('actusSlider');
     let actusIndex = 0;
 
-    function truncateText(text, maxLength) {
-        return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
-    }
 
     function renderActus() {
         let html = '';

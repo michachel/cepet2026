@@ -56,53 +56,127 @@ const teamMembers = [
       img: "https://picsum.photos/seed/team1/300/300",
       desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
     },
+    
+    {
+        name: "Jean Dupont",
+        role: "Responsable finances",
+        img: "https://picsum.photos/seed/team2/300/300",
+        desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
+    },
+
+    {
+        name: "Jean Dupont",
+        role: "Responsable finances",
+        img: "https://picsum.photos/seed/team3/300/300",
+        desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
+    },
+
+    {
+        name: "Jean Dupont",
+        role: "Responsable finances",
+        img: "https://picsum.photos/seed/team4/300/300",
+        desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
+    },
+
+    {
+        name: "Jean Dupont",
+        role: "Responsable finances",
+        img: "https://picsum.photos/seed/team5/300/300",
+        desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
+    },
+
+    {
+        name: "Jean Dupont",
+        role: "Responsable finances",
+        img: "https://picsum.photos/seed/team6/300/300",
+        desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
+    }
     // … jusqu’à 21 membres
   ];
+
 function initTeamSlider() {
-    const teamMembers = Array.from({ length: 21 }, (_, i) => ({
-        name: `Nom ${i + 1}`,
-        role: `Rôle ${i + 1}`,
-        img: `https://picsum.photos/seed/team${i + 1}/300/300`,
-        desc: `Description du membre ${i + 1}.`
-    }));
+const teamSlider = document.getElementById('teamSlider');
+let teamIndex = 0;
+const perSlide = 3;
+const totalSlides = Math.ceil(teamMembers.length / perSlide);
 
-    const teamSlider = document.getElementById('teamSlider');
-    let teamIndex = 0;
+function renderTeam() {
+    let html = '';
 
-    function renderTeam() {
-        let html = '';
-        for (let i = 0; i < teamMembers.length; i += 3) {
-            html += '<div class="team-slide">';
-            teamMembers.slice(i, i + 3).forEach(m => {
-                html += `<div class="team-member"><img src="${m.img}"><h3>${m.name}</h3><p>${m.role}</p><p>${m.desc}</p></div>`;
-            });
-            html += '</div>';
-        }
-        teamSlider.innerHTML = html;
-        updateTeamSlider();
+    for (let i = 0; i < teamMembers.length; i += perSlide) {
+    html += '<div class="team-slide">';
+    teamMembers.slice(i, i + perSlide).forEach((m, index) => {
+        const globalIndex = i + index;
+        html += `
+        <div class="team-member">
+            <img src="${m.img}" alt="${m.name}">
+            <h3>${m.name}</h3>
+            <p class="role">${m.role}</p>
+            <p class="desc">${truncateText(m.desc)}</p>
+            <button class="team-more" data-index="${globalIndex}">
+            En savoir +
+            </button>
+        </div>
+        `;
+    });
+    html += '</div>';
     }
 
-    function updateTeamSlider() {
-        teamSlider.style.transform = `translateX(-${teamIndex * 100}%)`;
-    }
-
-    renderTeam();
-
-    document.getElementById('prevTeam').addEventListener('click', () => {
-        teamIndex = (teamIndex - 1 + Math.ceil(teamMembers.length / 3)) % Math.ceil(teamMembers.length / 3);
-        updateTeamSlider();
-    });
-
-    document.getElementById('nextTeam').addEventListener('click', () => {
-        teamIndex = (teamIndex + 1) % Math.ceil(teamMembers.length / 3);
-        updateTeamSlider();
-    });
-
-    setInterval(() => {
-        teamIndex = (teamIndex + 1) % Math.ceil(teamMembers.length / 3);
-        updateTeamSlider();
-    }, 4000);
+    teamSlider.innerHTML = html;
+    updateTeamSlider();
+    bindMoreButtons();
 }
+
+function updateTeamSlider() {
+    teamSlider.style.transform = `translateX(-${teamIndex * 100}%)`;
+}
+
+function bindMoreButtons() {
+    document.querySelectorAll('.team-more').forEach(btn => {
+    btn.addEventListener('click', () => {
+        openTeamModal(btn.dataset.index);
+    });
+    });
+}
+
+renderTeam();
+
+document.getElementById('prevTeam').onclick = () => {
+    teamIndex = (teamIndex - 1 + totalSlides) % totalSlides;
+    updateTeamSlider();
+};
+
+document.getElementById('nextTeam').onclick = () => {
+    teamIndex = (teamIndex + 1) % totalSlides;
+    updateTeamSlider();
+};
+
+setInterval(() => {
+    teamIndex = (teamIndex + 1) % totalSlides;
+    updateTeamSlider();}, 10000);
+
+function openTeamModal(index) {
+    const m = teamMembers[index];
+    document.getElementById('modalImg').src = m.img;
+    document.getElementById('modalName').textContent = m.name;
+    document.getElementById('modalRole').className = 'role';
+    document.getElementById('modalRole').textContent = m.role;
+    document.getElementById('modalDesc').textContent = m.desc;
+    document.getElementById('teamModal').style.display = 'flex';
+    }
+    
+    document.getElementById('closeTeamModal').onclick = () => {
+    document.getElementById('teamModal').style.display = 'none';
+    };
+    
+    document.getElementById('teamModal').onclick = e => {
+    if (e.target.id === 'teamModal') {
+        document.getElementById('teamModal').style.display = 'none';
+    }
+    };
+    
+}
+  
 
 function truncateText(text, maxLength) {
     return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
@@ -111,8 +185,9 @@ function truncateText(text, maxLength) {
 // === Actus Slider & Modal ===
 function initActus() {
     const actusData = [
-        { title: 'Réunion publique avec les habitants', text: '...', date: '15 décembre 2024', img: 'https://picsum.photos/seed/actus1/400/250' },
+        { title: 'Réunion publique avec les habitants', text: 'une très longue actualités mais c\'est ok pas besoin d\'en faire tout un drame on va voir jusqu\'où ça va mais faut continuer longtemps pour arriver jusqu\'au trois petits points.', date: '15 décembre 2024', img: 'https://picsum.photos/seed/actus1/400/250' },
         { title: 'Rénovation du centre-ville', text: '...', date: '10 décembre 2024', img: 'https://picsum.photos/seed/actus2/400/250' },
+        { title: 'Nouvelle saison des activités associatives', text: '...', date: '5 décembre 2024', img: 'https://picsum.photos/seed/actus3/400/250' },
         { title: 'Nouvelle saison des activités associatives', text: '...', date: '5 décembre 2024', img: 'https://picsum.photos/seed/actus3/400/250' }
     ];
 

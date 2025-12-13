@@ -84,6 +84,9 @@ header.scrolled {
     .actus-cards {
         grid-template-columns: 1fr; /* mobile-first : 1 post-it par ligne */
     }
+    .gallery-slide {
+        flex-direction: column;
+    }
 }
 
 .hero {
@@ -268,6 +271,13 @@ section {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.team-member:hover {
+    transform: translateY(-8px) scale(1.03);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .team-member h3 {
@@ -341,6 +351,18 @@ section {
     line-height: 1.6;
     color: #333;
 }
+
+#teamModal .modal-content {
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+#teamModal.show .modal-content {
+    transform: scale(1);
+    opacity: 1;
+}
+
 
 /* Vision */
 .vision-description {
@@ -516,12 +538,51 @@ section {
 }
 
 /* Gallery */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-    gap: 15px;
-    margin-top: 30px;
+.gallery-slider-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 40px auto;
+    overflow: hidden;
 }
+
+.gallery-slider {
+    display: flex;
+    transition: transform 0.5s ease;
+    gap: 15px;
+}
+
+.gallery-slide {
+    min-width: 100%;
+    display: flex;
+    gap: 15px;
+}
+
+.gallery-slide a img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.gallery-nav {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.gallery-nav button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
+    background: #f13681;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.gallery-nav button:hover {
+    background: #d12d6f;
+}
+
 
 /* Footer */
 footer {

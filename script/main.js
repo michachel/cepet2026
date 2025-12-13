@@ -17,7 +17,7 @@ function initHeroSlider() {
     const dots = document.querySelectorAll('.dot');
     const heroText = document.getElementById('hero-text');
     const texts = [
-        { title: 'Jean-Michel Fougeray', subtitle: 'Le nouvel Hokage !', button: 'Découvrez mon équipe' },
+        { title: 'Cépet, un avenir qui nous rassemble', subtitle: '', button: 'Découvrez mon équipe' },
         { title: 'Vers un nouveau chemin', subtitle: 'Pour une vision durable de Cépet', button: 'Notre vision' },
         { title: 'Tous ensemble aux municipales', subtitle: 'On se donne rendez-vous en 2026 !', button: 'Nos actus' }
     ];
@@ -49,52 +49,51 @@ function initHeroSlider() {
 }
 
 // === Team Slider ===
-const teamMembers = [
-    {
-      name: "Jean Dupont",
-      role: "Responsable finances",
-      img: "https://picsum.photos/seed/team1/300/300",
-      desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
-    },
-    
-    {
-        name: "Jean Dupont",
-        role: "Responsable finances",
-        img: "https://picsum.photos/seed/team2/300/300",
-        desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
-    },
-
-    {
-        name: "Jean Dupont",
-        role: "Responsable finances",
-        img: "https://picsum.photos/seed/team3/300/300",
-        desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
-    },
-
-    {
-        name: "Jean Dupont",
-        role: "Responsable finances",
-        img: "https://picsum.photos/seed/team4/300/300",
-        desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
-    },
-
-    {
-        name: "Jean Dupont",
-        role: "Responsable finances",
-        img: "https://picsum.photos/seed/team5/300/300",
-        desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
-    },
-
-    {
-        name: "Jean Dupont",
-        role: "Responsable finances",
-        img: "https://picsum.photos/seed/team6/300/300",
-        desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
-    }
-    // … jusqu’à 21 membres
-  ];
-
 function initTeamSlider() {
+    const teamMembers = [
+        {
+          name: "Jean Dupont",
+          role: "Responsable finances",
+          img: "https://picsum.photos/seed/team1/300/300",
+          desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
+        },
+        
+        {
+            name: "Jean Dupont",
+            role: "Responsable finances",
+            img: "https://picsum.photos/seed/team2/300/300",
+            desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
+        },
+    
+        {
+            name: "Jean Dupont",
+            role: "Responsable finances",
+            img: "https://picsum.photos/seed/team3/300/300",
+            desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
+        },
+    
+        {
+            name: "Jean Dupont",
+            role: "Responsable finances",
+            img: "https://picsum.photos/seed/team4/300/300",
+            desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
+        },
+    
+        {
+            name: "Jean Dupont",
+            role: "Responsable finances",
+            img: "https://picsum.photos/seed/team5/300/300",
+            desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
+        },
+    
+        {
+            name: "Jean Dupont",
+            role: "Responsable finances",
+            img: "https://picsum.photos/seed/team6/300/300",
+            desc: "Description longue complète du membre. Elle peut dépasser largement 150 caractères sans problème. Ce texte sera tronqué dans la carte mais affiché en entier dans la modale."
+        }
+        // … jusqu’à 21 membres
+      ];
 const teamSlider = document.getElementById('teamSlider');
 let teamIndex = 0;
 const perSlide = 3;
@@ -170,13 +169,44 @@ function openTeamModal(index) {
     };
     
     document.getElementById('teamModal').onclick = e => {
-    if (e.target.id === 'teamModal') {
-        document.getElementById('teamModal').style.display = 'none';
-    }
+        if (e.target.id === 'teamModal') {
+            document.getElementById('teamModal').style.display = 'none';
+        }
     };
     
+    function openTeamModal(index) {
+        const m = teamMembers[index];
+        const modal = document.getElementById('teamModal');
+    
+        // 1. Mettre l'image et le contenu
+        document.getElementById('modalImg').src = m.img;
+        document.getElementById('modalName').textContent = m.name;
+        document.getElementById('modalRole').className = m.role;
+        document.getElementById('modalRole').textContent = m.role;
+        document.getElementById('modalDesc').textContent = m.desc;
+    
+        // 2. Afficher la modale
+        modal.style.display = 'flex';
+    
+        // 3. Déclencher animation
+        requestAnimationFrame(() => {
+            modal.classList.add('show');
+        });
+    }
+    
+    function closeTeamModal() {
+        const modal = document.getElementById('teamModal');
+        modal.classList.remove('show');
+        setTimeout(() => modal.style.display = 'none', 300);
+    }
+    
+    document.getElementById('closeTeamModal').onclick = closeTeamModal;
+    document.getElementById('teamModal').onclick = e => {
+        if (e.target.id === 'teamModal') closeTeamModal();
+    };
+    
+    
 }
-  
 
 function truncateText(text, maxLength) {
     return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
@@ -287,10 +317,73 @@ function initActus() {
     }
 }
 
+function initGallery() {
+    const galleryImages = [
+        { src: "https://picsum.photos/seed/gallery1/1200/900", thumb: "https://picsum.photos/seed/gallery1/800/600", alt: "Photo 1" },
+        { src: "https://picsum.photos/seed/gallery2/1200/900", thumb: "https://picsum.photos/seed/gallery2/800/600", alt: "Photo 2" },
+        { src: "https://picsum.photos/seed/gallery3/1200/900", thumb: "https://picsum.photos/seed/gallery3/800/600", alt: "Photo 3" },
+        { src: "https://picsum.photos/seed/gallery4/1200/900", thumb: "https://picsum.photos/seed/gallery4/800/600", alt: "Photo 4" },
+        { src: "https://picsum.photos/seed/gallery5/1200/900", thumb: "https://picsum.photos/seed/gallery5/800/600", alt: "Photo 5" },
+        { src: "https://picsum.photos/seed/gallery6/1200/900", thumb: "https://picsum.photos/seed/gallery6/800/600", alt: "Photo 6" },
+        { src: "https://picsum.photos/seed/gallery1/1200/900", thumb: "https://picsum.photos/seed/gallery1/800/600", alt: "Photo 1" },
+        { src: "https://picsum.photos/seed/gallery2/1200/900", thumb: "https://picsum.photos/seed/gallery2/800/600", alt: "Photo 2" },
+        { src: "https://picsum.photos/seed/gallery3/1200/900", thumb: "https://picsum.photos/seed/gallery3/800/600", alt: "Photo 3" },
+        { src: "https://picsum.photos/seed/gallery4/1200/900", thumb: "https://picsum.photos/seed/gallery4/800/600", alt: "Photo 4" },
+        { src: "https://picsum.photos/seed/gallery5/1200/900", thumb: "https://picsum.photos/seed/gallery5/800/600", alt: "Photo 5" },
+        { src: "https://picsum.photos/seed/gallery6/1200/900", thumb: "https://picsum.photos/seed/gallery6/800/600", alt: "Photo 6" },
+        // ajouter les autres images ici
+      ];
+
+    const gallerySlider = document.getElementById("gallerySlider");
+let galleryIndex = 0;
+const perSlide = 3; // nombre d'images par slide
+
+function renderGallery() {
+  let html = "";
+  for (let i = 0; i < galleryImages.length; i += perSlide) {
+    html += '<div class="gallery-slide">';
+    galleryImages.slice(i, i + perSlide).forEach(img => {
+      html += `<a href="${img.src}" data-fancybox="gallery" data-caption="${img.alt}">
+                 <img src="${img.thumb}" alt="${img.alt}">
+               </a>`;
+    });
+    html += '</div>';
+  }
+  gallerySlider.innerHTML = html;
+  updateGallerySlider();
+}
+
+function updateGallerySlider() {
+  gallerySlider.style.transform = `translateX(-${galleryIndex * 100}%)`;
+}
+
+document.getElementById('prevGallery').addEventListener('click', () => {
+  const totalSlides = Math.ceil(galleryImages.length / perSlide);
+  galleryIndex = (galleryIndex - 1 + totalSlides) % totalSlides;
+  updateGallerySlider();
+});
+
+document.getElementById('nextGallery').addEventListener('click', () => {
+  const totalSlides = Math.ceil(galleryImages.length / perSlide);
+  galleryIndex = (galleryIndex + 1) % totalSlides;
+  updateGallerySlider();
+});
+
+// auto-slide optionnel
+setInterval(() => {
+  const totalSlides = Math.ceil(galleryImages.length / perSlide);
+  galleryIndex = (galleryIndex + 1) % totalSlides;
+  updateGallerySlider();
+}, 5000);
+
+renderGallery();
+}
+
 // === Initialisation ===
 document.addEventListener('DOMContentLoaded', () => {
     initHeader();
     initHeroSlider();
     initTeamSlider();
     initActus();
+    initGallery();
 });

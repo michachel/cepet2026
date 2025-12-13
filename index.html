@@ -115,55 +115,9 @@
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="script/main.js"></script>
 <script>
-AOS.init({ duration: 800 });
-const header=document.getElementById('header');
-window.addEventListener('scroll',()=>{ header.classList.toggle('scrolled', window.scrollY>50); });
-const burger=document.getElementById('burger');
-const nav=document.querySelector('.nav-links');
-burger.addEventListener('click',()=>{ nav.classList.toggle('open'); });
-let index=0;
-const slides=document.querySelectorAll('.slide');
-const dots=document.querySelectorAll('.dot');
-const heroText=document.getElementById('hero-text');
-const texts=[{title:'Jean-Michel Fougeray', button:'Découvrez mon équipe'},{title:'Un nouvel air pour notre commune', button:'Voir notre vision'},{title:'Tous ensemble aux municipales', button:'On se donne rendez-vous en 2026'}];
-function showSlide(i){ slides.forEach(s=>s.classList.remove('active')); dots.forEach(d=>d.classList.remove('active')); slides[i].classList.add('active'); dots[i].classList.add('active'); heroText.innerHTML=`<h1>${texts[i].title}</h1><button>${texts[i].button}</button>`; index=i; }
-showSlide(0);
-setInterval(()=>{ showSlide((index+1)%slides.length); },4000);
-dots.forEach(dot=>{ dot.addEventListener('click',()=>showSlide(parseInt(dot.dataset.index))); });
-heroText.addEventListener('click',(e)=>{ 
-if(e.target.tagName==='BUTTON'){
-if(e.target.textContent==='Découvrez mon équipe'){ window.location.href='monequipe.html'; }
-else if(e.target.textContent==='Voir notre vision'){ window.location.href='programme.html'; }
-}
-});
-const teamMembers=[];
-for(let i=1;i<=21;i++){ teamMembers.push({name:`Nom ${i}`, role:`Rôle ${i}`, img:`https://picsum.photos/seed/team${i}/300/300`, desc:`Description du membre ${i}.`}); }
-const teamSlider=document.getElementById('teamSlider');
-let teamIndex=0;
-function renderTeam(){ let html=''; for(let i=0;i<teamMembers.length;i+=3){ html+='<div class="team-slide">'; teamMembers.slice(i,i+3).forEach(m=>{ html+=`<div class="team-member"><img src="${m.img}"><h3>${m.name}</h3><p>${m.role}</p><p>${m.desc}</p></div>`; }); html+='</div>'; } teamSlider.innerHTML=html; updateTeamSlider(); }
-function updateTeamSlider(){ teamSlider.style.transform=`translateX(-${teamIndex*100}%)`; }
-renderTeam();
-document.getElementById('prevTeam').addEventListener('click',()=>{ teamIndex=(teamIndex-1+Math.ceil(teamMembers.length/3))%Math.ceil(teamMembers.length/3); updateTeamSlider(); });
-document.getElementById('nextTeam').addEventListener('click',()=>{ teamIndex=(teamIndex+1)%Math.ceil(teamMembers.length/3); updateTeamSlider(); });
-setInterval(()=>{ teamIndex=(teamIndex+1)%Math.ceil(teamMembers.length/3); updateTeamSlider(); },4000);
-const actusData=[
-{title:'Réunion publique avec les habitants', text:'Notre équipe a rencontré de nombreux habitants lors de notre dernière réunion publique. Les échanges ont été riches et constructifs. Nous avons pu recueillir vos attentes et vos préoccupations pour mieux orienter notre programme. Ces moments de dialogue sont essentiels pour construire ensemble l\'avenir de notre commune.', date:'15 décembre 2024', img:'https://picsum.photos/seed/actus1/400/250'},
-{title:'Rénovation du centre-ville', text:'Le projet de rénovation du centre-ville avance à grands pas. Les travaux de réaménagement des espaces publics commenceront au printemps prochain. Cette initiative vise à améliorer le cadre de vie de tous les habitants et à dynamiser le commerce local. Nous vous tiendrons informés régulièrement de l\'avancement des travaux.', date:'10 décembre 2024', img:'https://picsum.photos/seed/actus2/400/250'},
-{title:'Nouvelle saison des activités associatives', text:'La nouvelle saison des activités associatives démarre avec de nombreuses nouveautés. De nouveaux clubs et ateliers sont proposés pour tous les âges. Ces activités renforcent le lien social et permettent à chacun de s\'épanouir. N\'hésitez pas à vous renseigner auprès de la mairie pour découvrir toutes les possibilités.', date:'5 décembre 2024', img:'https://picsum.photos/seed/actus3/400/250'}
-];
-const actusSlider=document.getElementById('actusSlider');
-let actusIndex=0;
-function truncateText(text, maxLength){ return text.length>maxLength?text.substring(0,maxLength)+'...':text; }
-function renderActus(){ let html=''; if(actusData.length>3){ for(let i=0;i<actusData.length;i+=3){ html+='<div class="actus-slide"><div class="actus-cards">'; actusData.slice(i,i+3).forEach((article,idx)=>{ const globalIndex=i+idx; html+=`<div class="actus-card"><img src="${article.img}" alt="${article.title}"><h3>${article.title}</h3><p class="actus-description">${truncateText(article.text,150)}</p><div class="actus-footer"><span class="actus-date">${article.date}</span><a href="#" class="actus-link" data-index="${globalIndex}">Lire l'article</a></div></div>`; }); html+='</div></div>'; } actusSlider.innerHTML=html; updateActusSlider(); } else { html='<div class="actus-slide"><div class="actus-cards">'; actusData.forEach((article,idx)=>{ html+=`<div class="actus-card"><img src="${article.img}" alt="${article.title}"><h3>${article.title}</h3><p class="actus-description">${truncateText(article.text,150)}</p><div class="actus-footer"><span class="actus-date">${article.date}</span><a href="#" class="actus-link" data-index="${idx}">Lire l'article</a></div></div>`; }); html+='</div></div>'; actusSlider.innerHTML=html; } document.querySelectorAll('.actus-link').forEach(link=>{ link.addEventListener('click',(e)=>{ e.preventDefault(); const index=parseInt(link.dataset.index); openActusModal(index); }); }); }
-function updateActusSlider(){ actusSlider.style.transform=`translateX(-${actusIndex*100}%)`; }
-renderActus();
-if(actusData.length>3){ document.getElementById('prevActus').addEventListener('click',()=>{ actusIndex=(actusIndex-1+Math.ceil(actusData.length/3))%Math.ceil(actusData.length/3); updateActusSlider(); }); document.getElementById('nextActus').addEventListener('click',()=>{ actusIndex=(actusIndex+1)%Math.ceil(actusData.length/3); updateActusSlider(); }); setInterval(()=>{ actusIndex=(actusIndex+1)%Math.ceil(actusData.length/3); updateActusSlider(); },4000); } else { document.querySelector('.actus-nav').style.display='none'; }
-function openActusModal(index){ const modal=document.getElementById('actusModal'); const article=actusData[index]; modal.querySelector('.modal-image').src=article.img; modal.querySelector('.modal-image').alt=article.title; modal.querySelector('.modal-title').textContent=article.title; modal.querySelector('.modal-text').textContent=article.text; modal.querySelector('.modal-date').textContent=article.date; modal.style.display='flex'; }
-function closeActusModal(){ document.getElementById('actusModal').style.display='none'; }
-document.getElementById('closeModal').addEventListener('click',closeActusModal);
-document.getElementById('actusModal').addEventListener('click',(e)=>{ if(e.target.id==='actusModal'){ closeActusModal(); } });
-document.addEventListener('keydown',(e)=>{ if(e.key==='Escape'){ closeActusModal(); } });
+    AOS.init({ duration: 800 });
 </script>
 </body>
 </html>

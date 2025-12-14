@@ -151,25 +151,29 @@ header.scrolled {
 
 .dots {
     position: absolute;
-    bottom: 20px;
-    width: 100%;
-    text-align: center;
+    bottom: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
 }
 
 .dot {
     height: 12px;
     width: 12px;
     margin: 0 5px;
-    background: white;
+    background: rgba(255,255,255,0.8);
     border-radius: 50%;
     display: inline-block;
-    opacity: 0.5;
+    opacity: 0.6;
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: 0 0 5px rgba(0,0,0,0.4);
 }
 
 .dot.active {
     opacity: 1;
+    background: #f13681;
 }
 
 section {

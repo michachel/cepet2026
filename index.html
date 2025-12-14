@@ -18,7 +18,7 @@
 <a href="#programme">Programme</a>
 <a href="#actus">Actualités</a>
 <a href="#galerie">Photos</a>
-<a href="contact.html">contact</a>
+<a href="#contact">contact</a>
 </nav>
 <div class="burger" id="burger"><span></span><span></span><span></span></div>
 </header>
@@ -48,8 +48,8 @@
 
 <section id="contactCandidat" class="contact-section" data-aos="fade-up">
     <h2>Vous désirez me rencontrer ou me faire parvenir des interrogations/encouragements ?</h2>
-    <a href="contact.html">Me contacter</a>
-    </section>
+    <a href="#contact">Me contacter</a>
+</section>
 
 <section id="equipe" data-aos="fade-up">
 <h2 style="text-align:center;">Ma fabuleuse équipe</h2>
@@ -62,7 +62,7 @@
 
 <section id="contactEquipe" class="contact-section" data-aos="fade-up">
 <h2>Vous voulez contacter un membre de l'équipe ?</h2>
-<a href="contact.html">Nous contacter</a>
+<a href="#contact">Nous contacter</a>
 </section>
 
 <section id="programme" style="background:#f7f7f7;" data-aos="fade-up">
@@ -82,7 +82,7 @@
 
 <section id="contactVision" class="contact-section" data-aos="fade-up">
 <h2>Vous avez des idées à nous partager ?</h2>
-<a href="contact.html">Nous contacter</a>
+<a href="#contact">Nous contacter</a>
 </section>
 
 <section id="actus" data-aos="fade-up">
@@ -141,6 +141,32 @@
       </div>
     </div>
   </section>
+
+  <section id="contact" class="contact-section" data-aos="fade-up">
+    <h2>Contactez-moi</h2>
+    <p style="margin-bottom:20px;">Vous pouvez me laisser un message et je vous répondrai dès que possible.</p>
+    
+    <form id="contactForm">
+      <div class="form-group">
+        <input type="text" name="prenom" placeholder="Prénom" required>
+      </div>
+      <div class="form-group">
+        <input type="text" name="nom" placeholder="Nom" required>
+      </div>
+      <div class="form-group">
+        <input type="email" name="email" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+        <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
+      </div>
+      <button class="g-recaptcha" 
+        data-sitekey="6LeytSssAAAAAH7tpB9226ETMnjPMHnJhZvwpk0O" 
+        data-callback='onSubmit' 
+        data-action='submit'>Envoyer</button>
+      <p id="contactMessage" style="margin-top:15px; display:none;"></p>
+    </form>
+  </section>
+  
   
 
 <footer data-aos="fade-up">
@@ -170,9 +196,13 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
+<script src="https://www.google.com/recaptcha/api.js"></script>
 <script src="script/main.js"></script>
 <script>
     AOS.init({ duration: 800 });
+    function onSubmit(token) {
+     document.getElementById("contactForm").submit();
+   }
 </script>
 </body>
 </html>

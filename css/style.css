@@ -760,3 +760,48 @@ button {
     position: relative;
     z-index: 1;
 }
+
+.contact-section {
+    text-align: center;
+    background-image: url('https://www.ngine.fr/data/20/recommandation-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 75px 30px;
+    color: #fff;
+}
+
+.contact-section input,
+.contact-section textarea {
+    width: 100%;
+    max-width: 500px;
+    margin: 10px auto;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    font-size: 1em;
+}
+
+.contact-section textarea {
+    resize: vertical;
+}
+
+.contact-section button {
+    background: #f13681;
+    color: #fff;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.contact-section button:hover {
+    background: #d12d6f;
+}
+
+#contactMessage {
+    font-size: 1em;
+}
+

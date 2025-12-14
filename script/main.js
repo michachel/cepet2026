@@ -362,6 +362,38 @@ setInterval(() => {
 renderGallery();
 }
 
+function initContact()
+{
+    const form = document.getElementById('contactForm');
+    const messageEl = document.getElementById('contactMessage');
+    
+    form.addEventListener('submit', e => {
+        e.preventDefault();
+    
+        // Validation simple
+        const prenom = form.prenom.value.trim();
+        const nom = form.nom.value.trim();
+        const email = form.email.value.trim();
+        const msg = form.message.value.trim();
+    
+        if (!prenom || !nom || !email || !msg) {
+            messageEl.style.display = 'block';
+            messageEl.style.color = '#ffcccb';
+            messageEl.textContent = 'Veuillez remplir tous les champs.';
+            return;
+        }
+    
+        // Envoi fictif (à remplacer par backend)
+        messageEl.style.display = 'block';
+        messageEl.style.color = '#00ffcc';
+        messageEl.textContent = 'Merci pour votre message ! Nous vous répondrons bientôt.';
+    
+        form.reset();
+    });
+}
+
+
+
 // === Initialisation ===
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -372,4 +404,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initTeamSlider(isMobile);
     initActus(isMobile);
     initGallery(isMobile);
+    initContact();
 });

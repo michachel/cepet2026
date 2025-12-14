@@ -18,7 +18,7 @@ function initHeroSlider() {
     const heroText = document.getElementById('hero-text');
     const texts = [
         { title: 'Jean-Michel Fougeray', subtitle: 'Cépet, un avenir qui nous rassemble', button: 'Découvrez mon équipe' },
-        { title: 'Vers un nouveau chemin', subtitle: 'Pour une vision durable de Cépet', button: 'Notre vision' },
+        { title: 'Pour une vision durable de Cépet', subtitle: '', button: 'Notre vision' },
         { title: 'Tous ensemble aux municipales', subtitle: 'On se donne rendez-vous en 2026 !', button: 'Nos actus' }
     ];
 
@@ -34,7 +34,7 @@ function initHeroSlider() {
     }
 
     showSlide(0);
-    setInterval(() => showSlide((index + 1) % slides.length), 4000);
+    setInterval(() => showSlide((index + 1) % slides.length), 5000);
 
     dots.forEach(dot => {
         dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.index)));

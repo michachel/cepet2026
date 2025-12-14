@@ -142,27 +142,38 @@
     </div>
   </section>
 
-  <section id="contact" class="contact-section" data-aos="fade-up">
+  
+  <section id="contact" class="contact-sectionFinal" data-aos="fade-up">
     <h2>Contactez-moi</h2>
-    <p style="margin-bottom:20px;">Vous pouvez me laisser un message et je vous répondrai dès que possible.</p>
-    
+    <p style="margin-bottom:20px;">
+      Vous pouvez me laisser un message et je vous répondrai dès que possible.
+    </p>
+  
     <form id="contactForm">
+      <!-- Honeypot (anti-bot) -->
+      <div class="hp-field">
+        <label>Ne pas remplir</label>
+        <input type="text" name="website" tabindex="-1" autocomplete="off">
+      </div>
+  
       <div class="form-group">
         <input type="text" name="prenom" placeholder="Prénom" required>
       </div>
+  
       <div class="form-group">
         <input type="text" name="nom" placeholder="Nom" required>
       </div>
+  
       <div class="form-group">
         <input type="email" name="email" placeholder="Email" required>
       </div>
+  
       <div class="form-group">
         <textarea name="message" placeholder="Votre message" rows="5" required></textarea>
       </div>
-      <button class="g-recaptcha" 
-        data-sitekey="6LeytSssAAAAAH7tpB9226ETMnjPMHnJhZvwpk0O" 
-        data-callback='onSubmit' 
-        data-action='submit'>Envoyer</button>
+  
+      <button type="submit">Envoyer</button>
+  
       <p id="contactMessage" style="margin-top:15px; display:none;"></p>
     </form>
   </section>
@@ -170,8 +181,22 @@
   
 
 <footer data-aos="fade-up">
-<div class="column" style="text-align:left;"><h3>Liste municipale</h3><p>Nom, adresse, infos...</p></div>
-<div class="column" style="text-align:right;"><h3>Réseaux sociaux</h3><p><a href="#">Facebook</a> | <a href="#">Instagram</a></p><p><a href="#">Mentions légales</a></p></div>
+<div class="column" style="text-align:left;">
+  <h3>Jean-Michel Fougeray</h3>
+    <p>
+      Cépet, un avenir qui nous rassemble<br>
+      Élections municipales 2026<br>
+      Commune de Cépet
+    </p>
+    <p>
+      📧 <a href="mailto:municipalescepet.2026@orange.fr">municipalescepet.2026@orange.fr</a><br>
+      📞 <a href="tel:+33667705316">06 67 70 53 16</a>
+    </p>
+</div>
+<div class="column" style="text-align:right;">
+  <h3>Réseaux sociaux</h3>
+  <p><a href="#">Facebook</a> | <a href="#">Instagram</a></p>
+  <p><a href="#">Mentions légales</a></p></div>
 </footer>
 
 <div class="modal" id="teamModal">
@@ -196,13 +221,9 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
-<script src="https://www.google.com/recaptcha/api.js"></script>
 <script src="script/main.js"></script>
 <script>
     AOS.init({ duration: 800 });
-    function onSubmit(token) {
-     document.getElementById("contactForm").submit();
-   }
 </script>
 </body>
 </html>

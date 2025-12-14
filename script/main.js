@@ -366,28 +366,23 @@ function initContact()
 {
     const form = document.getElementById('contactForm');
     const messageEl = document.getElementById('contactMessage');
-    
+
     form.addEventListener('submit', e => {
         e.preventDefault();
-    
-        // Validation simple
-        const prenom = form.prenom.value.trim();
-        const nom = form.nom.value.trim();
-        const email = form.email.value.trim();
-        const msg = form.message.value.trim();
-    
-        if (!prenom || !nom || !email || !msg) {
-            messageEl.style.display = 'block';
-            messageEl.style.color = '#ffcccb';
-            messageEl.textContent = 'Veuillez remplir tous les champs.';
-            return;
+
+        const honeypot = form.querySelector('input[name="website"]').value;
+
+        // BOT détecté
+        if (honeypot !== '') {
+            console.warn('Bot détecté');
+            return; // on ne fait rien
         }
-    
-        // Envoi fictif (à remplacer par backend)
+
+        // Simulation d’envoi OK
+        messageEl.textContent = "Merci pour votre message, il a bien été envoyé.";
         messageEl.style.display = 'block';
-        messageEl.style.color = '#00ffcc';
-        messageEl.textContent = 'Merci pour votre message ! Nous vous répondrons bientôt.';
-    
+        messageEl.style.color = '#4CAF50';
+
         form.reset();
     });
 }

@@ -81,6 +81,19 @@ header.scrolled {
     .gallery-slide {
         flex-direction: column;
     }
+    footer {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    footer .column {
+        text-align: center !important;
+    }
+    .contact-sectionFinal input,
+    .contact-sectionFinal textarea {
+    max-width: 200px !important;
+}
 }
 
 .hero {
@@ -607,6 +620,21 @@ footer a {
     text-decoration: none;
 }
 
+footer h3 {
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+footer p {
+    line-height: 1.6;
+    font-size: 0.95em;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+
 button {
     background: #f13681;
     color: #fff;
@@ -761,7 +789,7 @@ button {
     z-index: 1;
 }
 
-.contact-section {
+.contact-sectionFinal {
     text-align: center;
     background-image: url('https://www.ngine.fr/data/20/recommandation-bg.jpg');
     background-size: cover;
@@ -771,8 +799,8 @@ button {
     color: #fff;
 }
 
-.contact-section input,
-.contact-section textarea {
+.contact-sectionFinal input,
+.contact-sectionFinal textarea {
     width: 100%;
     max-width: 500px;
     margin: 10px auto;
@@ -782,11 +810,11 @@ button {
     font-size: 1em;
 }
 
-.contact-section textarea {
+.contact-sectionFinal textarea {
     resize: vertical;
 }
 
-.contact-section button {
+.contact-sectionFinal button {
     background: #f13681;
     color: #fff;
     padding: 10px 25px;
@@ -797,11 +825,19 @@ button {
     transition: 0.3s;
 }
 
-.contact-section button:hover {
+.contact-sectionFinal button:hover {
     background: #d12d6f;
 }
 
 #contactMessage {
     font-size: 1em;
+}
+
+.hp-field {
+    position: absolute;
+    left: -9999px;
+    opacity: 0;
+    height: 0;
+    overflow: hidden;
 }
 

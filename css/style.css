@@ -49,13 +49,14 @@ header.scrolled {
         position: absolute;
         top: 60px;
         right: 20px;
-        background: white;
+        background: #f13681;
         padding: 20px;
         border-radius: 10px;
         flex-direction: column;
     }
     .nav-links a {
         margin: 10px 0;
+        color: white;
     }
     .burger {
         display: flex;
@@ -369,6 +370,9 @@ section {
     gap: 20px;
     margin: 0 auto;
     padding: 40px 20px;
+}
+.logo {
+    color: #fff;
 }
 
 @media (min-width: 992px) {

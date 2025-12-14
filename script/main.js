@@ -49,7 +49,7 @@ function initHeroSlider() {
 }
 
 // === Team Slider ===
-function initTeamSlider() {
+function initTeamSlider(isMobile) {
     const teamMembers = [
         {
           name: "Jean Dupont",
@@ -96,29 +96,29 @@ function initTeamSlider() {
       ];
 const teamSlider = document.getElementById('teamSlider');
 let teamIndex = 0;
-const perSlide = 3;
+const perSlide = isMobile ? 1 : 3;
 const totalSlides = Math.ceil(teamMembers.length / perSlide);
 
 function renderTeam() {
     let html = '';
 
     for (let i = 0; i < teamMembers.length; i += perSlide) {
-    html += '<div class="team-slide">';
-    teamMembers.slice(i, i + perSlide).forEach((m, index) => {
-        const globalIndex = i + index;
-        html += `
-        <div class="team-member">
-            <img src="${m.img}" alt="${m.name}">
-            <h3>${m.name}</h3>
-            <p class="role">${m.role}</p>
-            <p class="desc">${truncateText(m.desc)}</p>
-            <button class="team-more" data-index="${globalIndex}">
-            En savoir +
-            </button>
-        </div>
-        `;
-    });
-    html += '</div>';
+        html += '<div class="team-slide">';
+        teamMembers.slice(i, i + perSlide).forEach((m, index) => {
+            const globalIndex = i + index;
+            html += `
+            <div class="team-member">
+                <img src="${m.img}" alt="${m.name}">
+                <h3>${m.name}</h3>
+                <p class="role">${m.role}</p>
+                <p class="desc">${truncateText(m.desc)}</p>
+                <button class="team-more" data-index="${globalIndex}">
+                En savoir +
+                </button>
+            </div>
+            `;
+        });
+        html += '</div>';
     }
 
     teamSlider.innerHTML = html;
@@ -213,7 +213,7 @@ function truncateText(text, maxLength) {
 }
 
 // === Actus Slider & Modal ===
-function initActus() {
+function initActus(isMobile) {
     const actusData = [
         { title: 'Réunion publique avec les habitants', text: 'une très longue actualités mais c\'est ok pas besoin d\'en faire tout un drame on va voir jusqu\'où ça va mais faut continuer longtemps pour arriver jusqu\'au trois petits points.', date: '15 décembre 2024', img: 'https://picsum.photos/seed/actus1/400/250' },
         { title: 'Rénovation du centre-ville', text: '...', date: '10 décembre 2024', img: 'https://picsum.photos/seed/actus2/400/250' },
@@ -222,40 +222,26 @@ function initActus() {
     ];
 
     const actusSlider = document.getElementById('actusSlider');
+    
+    const perSlide = isMobile ? 1 : 3;
     let actusIndex = 0;
 
 
     function renderActus() {
         let html = '';
-        if (actusData.length > 3) {
-            for (let i = 0; i < actusData.length; i += 3) {
-                html += '<div class="actus-slide"><div class="actus-cards">';
-                actusData.slice(i, i + 3).forEach((article, idx) => {
-                    const globalIndex = i + idx;
-                    html += `<div class="actus-card">
-                                <img src="${article.img}" alt="${article.title}">
-                                <h3>${article.title}</h3>
-                                <p class="actus-description">${truncateText(article.text, 150)}</p>
-                                <div class="actus-footer">
-                                    <span class="actus-date">${article.date}</span>
-                                    <a href="#" class="actus-link" data-index="${globalIndex}">Lire l'article</a>
-                                </div>
-                             </div>`;
-                });
-                html += '</div></div>';
-            }
-        } else {
-            html = '<div class="actus-slide"><div class="actus-cards">';
-            actusData.forEach((article, idx) => {
+        for (let i = 0; i < actusData.length; i += perSlide) {
+            html += '<div class="actus-slide"><div class="actus-cards">';
+            actusData.slice(i, i + perSlide).forEach((article, idx) => {
+                const globalIndex = i + idx;
                 html += `<div class="actus-card">
                             <img src="${article.img}" alt="${article.title}">
                             <h3>${article.title}</h3>
-                            <p class="actus-description">${truncateText(article.text,150)}</p>
+                            <p class="actus-description">${truncateText(article.text, 150)}</p>
                             <div class="actus-footer">
                                 <span class="actus-date">${article.date}</span>
-                                <a href="#" class="actus-link" data-index="${idx}">Lire l'article</a>
+                                <a href="#" class="actus-link" data-index="${globalIndex}">Lire l'article</a>
                             </div>
-                         </div>`;
+                            </div>`;
             });
             html += '</div></div>';
         }
@@ -299,22 +285,18 @@ function initActus() {
 
     renderActus();
 
-    if(actusData.length > 3){
-        document.getElementById('prevActus').addEventListener('click', () => {
-            actusIndex = (actusIndex-1 + Math.ceil(actusData.length/3)) % Math.ceil(actusData.length/3);
-            updateActusSlider();
-        });
-        document.getElementById('nextActus').addEventListener('click', () => {
-            actusIndex = (actusIndex+1) % Math.ceil(actusData.length/3);
-            updateActusSlider();
-        });
-        setInterval(() => {
-            actusIndex = (actusIndex+1) % Math.ceil(actusData.length/3);
-            updateActusSlider();
-        },4000);
-    } else {
-        document.querySelector('.actus-nav').style.display='none';
-    }
+    document.getElementById('prevActus').addEventListener('click', () => {
+        actusIndex = (actusIndex-1 + Math.ceil(actusData.length/perSlide)) % Math.ceil(actusData.length/perSlide);
+        updateActusSlider();
+    });
+    document.getElementById('nextActus').addEventListener('click', () => {
+        actusIndex = (actusIndex+1) % Math.ceil(actusData.length/perSlide);
+        updateActusSlider();
+    });
+    setInterval(() => {
+        actusIndex = (actusIndex+1) % Math.ceil(actusData.length/perSlide);
+        updateActusSlider();
+    },4000);
 }
 
 function initGallery() {
@@ -381,9 +363,12 @@ renderGallery();
 
 // === Initialisation ===
 document.addEventListener('DOMContentLoaded', () => {
+
+    const isMobile = window.innerWidth <= 768;
+
     initHeader();
     initHeroSlider();
-    initTeamSlider();
-    initActus();
+    initTeamSlider(isMobile);
+    initActus(isMobile);
     initGallery();
 });

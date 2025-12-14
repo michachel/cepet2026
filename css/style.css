@@ -1,6 +1,5 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
     background: #f0f0f5;
     overflow-x: hidden;
 }
@@ -75,13 +74,7 @@ header.scrolled {
     .candidat-intro {
         text-align: center;
     }
-    .team-slide {
-        flex-direction: column;
-    }
     .vision {
-        grid-template-columns: 1fr; /* mobile-first : 1 post-it par ligne */
-    }
-    .actus-cards {
         grid-template-columns: 1fr; /* mobile-first : 1 post-it par ligne */
     }
     .gallery-slide {
@@ -382,6 +375,9 @@ section {
     .vision {
         grid-template-columns: repeat(3, 1fr);
     }
+    .actus-cards {
+        grid-template-columns: repeat(3, 1fr);
+    }
 }
 
 .vision .postit {
@@ -454,7 +450,6 @@ section {
 
 .actus-cards {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     max-width: 900px;
     margin: 0 auto;

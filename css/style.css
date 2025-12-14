@@ -684,3 +684,79 @@ button {
     color: #999;
     font-size: 0.9em;
 }
+
+#vote {
+    padding: 60px 20px;
+}
+
+.vote-box {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.vote-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+    padding: 12px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-primary {
+    background: #f13681;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    opacity: 0.85;
+}
+
+.btn-secondary {
+    background: #f13681;
+    color: #fff;
+}
+
+.btn-secondary:hover {
+    opacity: 0.85;
+}
+
+.vote-info {
+    font-size: 0.9em;
+    color: #fff;
+}
+
+.vote-banner {
+    background-image: url('./bandeauvoter1.png');
+    background-size: cover;       /* pour que l'image remplisse toute la section */
+    background-position: center;  /* recentre l'image */
+    background-repeat: no-repeat; /* pas de répétition */
+    padding: 75px 30px;
+    position: relative;           /* si tu veux ajouter un overlay */
+    color: #fff;
+}
+
+.vote-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6); /* ajustable */
+    z-index: 0;
+}
+
+.vote-banner > * {
+    position: relative;
+    z-index: 1;
+}

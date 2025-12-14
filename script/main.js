@@ -17,9 +17,9 @@ function initHeroSlider() {
     const dots = document.querySelectorAll('.dot');
     const heroText = document.getElementById('hero-text');
     const texts = [
-        { title: 'Jean-Michel Fougeray', subtitle: 'Cépet, un avenir qui nous rassemble', button: 'Découvrez mon équipe' },
-        { title: 'Pour une vision durable de Cépet', subtitle: '', button: 'Notre vision' },
-        { title: 'Tous ensemble aux municipales', subtitle: 'On se donne rendez-vous en 2026 !', button: 'Nos actus' }
+        { title: 'Jean-Michel Fougeray', subtitle: 'Cépet, un avenir qui nous rassemble', button: 'Découvrez mon équipe', dataTarget: 'equipe' },
+        { title: 'Pour une vision durable de Cépet', subtitle: '', button: 'Notre vision', dataTarget: 'programme' },
+        { title: 'Tous ensemble aux municipales', subtitle: 'On se donne rendez-vous en 2026 !', button: 'S\'inscrire', dataTarget: 'vote' }
     ];
 
     let index = 0;
@@ -29,7 +29,7 @@ function initHeroSlider() {
         dots.forEach(d => d.classList.remove('active'));
         slides[i].classList.add('active');
         dots[i].classList.add('active');
-        heroText.innerHTML = `<h1>${texts[i].title}</h1><p>${texts[i].subtitle}</p><button>${texts[i].button}</button>`;
+        heroText.innerHTML = `<h1>${texts[i].title}</h1><p>${texts[i].subtitle}</p><button data-target="${texts[i].dataTarget}">${texts[i].button}</button>`;
         index = i;
     }
 
@@ -41,11 +41,12 @@ function initHeroSlider() {
     });
 
     heroText.addEventListener('click', e => {
-        if (e.target.tagName === 'BUTTON') {
-            if (e.target.textContent === 'Découvrez mon équipe') window.location.href = 'monequipe.html';
-            else if (e.target.textContent === 'Voir notre vision') window.location.href = 'programme.html';
-        }
+        const btn = e.target.closest('button');
+        if (!btn) return;
+        const target = btn.dataset.target;
+        if (target) window.location.href = `index.html#${target}`;
     });
+    
 }
 
 // === Team Slider ===

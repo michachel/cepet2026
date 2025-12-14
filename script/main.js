@@ -299,7 +299,7 @@ function initActus(isMobile) {
     },4000);
 }
 
-function initGallery() {
+function initGallery(isMobile) {
     const galleryImages = [
         { src: "https://picsum.photos/seed/gallery1/1200/900", thumb: "https://picsum.photos/seed/gallery1/800/600", alt: "Photo 1" },
         { src: "https://picsum.photos/seed/gallery2/1200/900", thumb: "https://picsum.photos/seed/gallery2/800/600", alt: "Photo 2" },
@@ -318,7 +318,7 @@ function initGallery() {
 
     const gallerySlider = document.getElementById("gallerySlider");
 let galleryIndex = 0;
-const perSlide = 3; // nombre d'images par slide
+const perSlide = isMobile ? 1 : 3; // nombre d'images par slide
 
 function renderGallery() {
   let html = "";
@@ -370,5 +370,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeroSlider();
     initTeamSlider(isMobile);
     initActus(isMobile);
-    initGallery();
+    initGallery(isMobile);
 });

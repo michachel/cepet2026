@@ -666,6 +666,19 @@ button {
     position: relative;
 }
 
+.modal h2 {
+    color: #f13681;
+    margin-bottom: 20px;
+}
+
+.modal-close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 26px;
+    cursor: pointer;
+}
+
 .close {
     color: #aaa;
     float: right;

@@ -951,5 +951,96 @@ button {
   #scrollTopBtn:hover {
     transform: translateY(-4px);
   }
+  .social-banner {
+    position: relative;
+    background: url('bandeaureseausociaux.png') center/cover no-repeat;
+    padding: 80px 20px;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+  }
   
+  .social-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45); /* overlay semi-transparent derrière le texte */
+    z-index: 1;
+  }
+  
+  .social-banner-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .social-banner h2 {
+    font-size: 32px;
+    margin-bottom: 32px;
+    font-weight: 600;
+    line-height: 1.3;
+  }
+  
+  .social-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  
+  .social-buttons a.social {
+    display: flex;
+    align-items: center;
+    gap: 16px;           /* espace icône + texte */
+    padding: 18px 48px;  /* boutons XL */
+    border-radius: 50px; /* très arrondi style pill */
+    color: #fff;
+    font-weight: 700;    /* texte bien visible */
+    font-size: 20px;     /* texte plus grand */
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    position: relative;
+  }
 
+/* Couleurs réseaux */
+.social-buttons a.facebook {
+    background: #1877f2;
+  }
+  
+  .social-buttons a.instagram {
+    background: linear-gradient(45deg, #feda75, #f13681, #962fbf);
+  }
+  
+  
+/* Hover dynamique */
+.social-buttons a.social:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.35);
+  }
+
+  /* Effet pulse subtil */
+.social-buttons a.social::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 60px;
+    box-shadow: 0 0 0 rgba(255,255,255,0);
+    transition: box-shadow 0.4s ease-in-out;
+  }
+
+  .social-buttons a.social:hover::after {
+    box-shadow: 0 0 20px rgba(255,255,255,0.25);
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .social-banner h2 {
+      font-size: 24px;
+    }
+    .social-buttons a.social {
+        font-size: 18px;
+        padding: 18px 36px;
+        gap: 14px;
+      }
+  }
+  

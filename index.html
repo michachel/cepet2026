@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
 <link rel="stylesheet" href="css/style.css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
 <header id="header">
@@ -188,24 +189,56 @@
   
   
 
-<footer data-aos="fade-up">
-<div class="column" style="text-align:left;">
-  <h3>Jean-Michel Fougeray</h3>
-    <p>
-      Cépet, un avenir qui nous rassemble<br>
-      Élections municipales 2026<br>
-      Commune de Cépet
-    </p>
-    <p>
-      📧 <a href="mailto:municipalescepet.2026@orange.fr">municipalescepet.2026@orange.fr</a><br>
-      📞 <a href="tel:+33750685114">07 50 68 51 14</a>
-    </p>
-</div>
-<div class="column" style="text-align:right;">
-  <h3>Réseaux sociaux</h3>
-  <p><a href="https://www.facebook.com/profile.php?id=61585388245200">Facebook</a> | <a href="https://www.instagram.com/cepetunavenirquinousrassemble/">Instagram</a></p>
-  <p><a href="#" id="openMentions">Mentions légales</a></p></div>
-</footer>
+  <footer class="site-footer" data-aos="fade-up">
+
+    <div class="footer-columns">
+  
+      <!-- Colonne gauche -->
+      <div class="column left">
+        <h3>Jean-Michel Fougeray</h3>
+        <p>
+          Cépet, un avenir qui nous rassemble<br>
+          Élections municipales 2026<br>
+          Commune de Cépet
+        </p>
+        <p>
+          📧 <a href="mailto:municipalescepet.2026@orange.fr">
+            municipalescepet.2026@orange.fr
+          </a><br>
+          📞 <a href="tel:+33750685114">
+            07 50 68 51 14
+          </a>
+        </p>
+      </div>
+  
+      <!-- Colonne droite -->
+      <div class="column right">
+        <h3>Réseaux sociaux</h3>
+  
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=61585388245200"
+             target="_blank"
+             aria-label="Facebook"
+             class="social facebook">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+  
+          <a href="https://www.instagram.com/cepetunavenirquinousrassemble/"
+             target="_blank"
+             aria-label="Instagram"
+             class="social instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+        </div>
+  
+        <p class="mentions">
+          <a href="#" id="openMentions">Mentions légales</a>
+        </p>
+      </div>
+  
+    </div>
+  </footer>
+  
 
 <div class="modal" id="teamModal">
     <div class="modal-content">
@@ -248,7 +281,9 @@
   </div>
 </div>
 
-
+<button id="scrollTopBtn" aria-label="Remonter en haut">
+  ↑
+</button>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
 <script src="script/main.js"></script>

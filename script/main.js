@@ -452,6 +452,29 @@ function initContact()
 }
 
 
+function initScrollTop()
+{
+    const scrollTopBtn = document.getElementById('scrollTopBtn');
+
+    // Afficher / cacher le bouton
+    window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        scrollTopBtn.classList.add('show');
+    } else {
+        scrollTopBtn.classList.remove('show');
+    }
+    });
+
+    // Remonter en haut
+    scrollTopBtn.addEventListener('click', () => {
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+    });
+
+}
+
 
 // === Initialisation ===
 document.addEventListener('DOMContentLoaded', () => {
@@ -464,4 +487,5 @@ document.addEventListener('DOMContentLoaded', () => {
     initActus(isMobile);
     initGallery(isMobile);
     initContact();
+    initScrollTop();
 });

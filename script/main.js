@@ -128,7 +128,7 @@ function initTeamSlider(isMobile) {
             name: "Rivière Julien",
             role: "Responsable E-commerce", 
             img: "./css/DSC00393R Julien_portrait.jpg", 
-            descShort: "./css/DSC00393R Julien_portrait.jpg", 
+            descShort: "", 
             desc: "Marié, 3 enfants ,responsable E-commerce au sein d'une petite entreprise, je suis également président de l'association Cep'A du jeu, que j'ai créée avec ma femme il y a six ans dans notre village. J'ai démontré ma capacité à mobiliser, fédérer et concrétiser des projets en organisant avec succès trois festivals sur notre commune.<br>Fort de cette expérience associative, je souhaite m'investir dans la vie locale de notre village. Mes compétence professionnelles sont un atout pour dynamiser et moderniser les actions de notre commune.<br>Je rejoins cette liste apolitique pour mettre mon énergie et mon expertise au service d'un seul objectif : rendre notre commune un lieu de vie agréable, stimulant et innovant pour toutes les générations."
         },
         {

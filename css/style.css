@@ -256,13 +256,18 @@ section {
 
 /* Team slider */
 .team-slider-container {
+    contain: layout paint;
     position: relative;
     max-width: 1000px;
     margin: 40px auto;
     overflow: hidden;
 }
+.team-slider.is-sliding .team-member {
+    box-shadow: none;
+  }
 
 .team-slider {
+    will-change: transform;
     display: flex;
     transition: transform 0.5s ease;
 }
@@ -283,13 +288,16 @@ section {
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 
-.team-member:hover {
-    transform: translateY(-8px) scale(1.03);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
+@media (hover: hover) {
+    .team-member:hover {
+      transform: translateY(-4px);
+    }
+  }
 
 .team-member h3 {
     margin: 15px 0 5px;
@@ -855,7 +863,7 @@ button {
 }
 
 .vote-banner {
-    background-image: url('./bandeauvoter1.png');
+    background-image: url('./bandeauvoter1.webp');
     background-size: cover;       /* pour que l'image remplisse toute la section */
     background-position: center;  /* recentre l'image */
     background-repeat: no-repeat; /* pas de répétition */
@@ -957,7 +965,7 @@ button {
   }
   .social-banner {
     position: relative;
-    background: url('bandeaureseausociaux.png') center/cover no-repeat;
+    background: url('bandeaureseausociaux.webp') center/cover no-repeat;
     padding: 80px 20px;
     color: #fff;
     text-align: center;

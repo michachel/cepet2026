@@ -77,7 +77,7 @@ function initTeamSlider(isMobile) {
         {
             name: "POTTIER Thomas",
             role: "Chef d'équipe ", 
-            img: "https://picsum.photos/seed/team1/300/300", 
+            img: "./css/Thomas Pottier.jpg", 
             descShort: "Thomas, 38 ans, 2 enfants, chef d’équipe dans l’aéronautique.", 
             desc: "Concerné par les problématiques de la commune, je souhaite m’investir dans la vie du village et y apporter mes valeurs de transparence, de dialogue et de vie de famille."
         },
@@ -85,8 +85,8 @@ function initTeamSlider(isMobile) {
             name: "CAILLAUD Mélanie",
             role: "Manager cheffe de projet", 
             img: "https://picsum.photos/seed/team1/300/300", 
-            descShort: "", 
-            desc: "Mélanie Caillaud, 40 ans, 2 enfants, manager et cheffe de projet.<br>J'ai toujours eu le goût et l'envie d'aider et de faire grandir les autres ou un collectif. C'est donc tout naturellement, qu'après m'être investie au sein des DPE et du Comité des parents d'élèves ces dernières années, je souhaite contribuer à apporter convivialité, bonne humeur et intégrité à la commune de Cépet."
+            descShort: "Mélanie Caillaud, 40 ans, 2 enfants, manager et cheffe de projet.", 
+            desc: "J'ai toujours eu le goût et l'envie d'aider et de faire grandir les autres ou un collectif. C'est donc tout naturellement, qu'après m'être investie au sein des DPE et du Comité des parents d'élèves ces dernières années, je souhaite contribuer à apporter convivialité, bonne humeur et intégrité à la commune de Cépet."
         },
         {
             name: "GARRIGUES Bruno",
@@ -106,7 +106,7 @@ function initTeamSlider(isMobile) {
         {
             name: "FOLLET BOTELLA Céline",
             role: "Assistante de Direction", 
-            img: "https://picsum.photos/seed/team1/300/300", 
+            img: "./css/DSC00542R Céline.jpg", 
             descShort: "", 
             desc: "Assistante de Direction mais forte de 18 années d'expériences dans le domaine du social, je suis profondément attachée aux valeurs d'écoute, de solidarité et de respect. Présidente de l'association qui gère ma rue de 42 logements depuis 2019 (ASL), je m'investis au sein du bureau pour le bon fonctionnement du vivre ensemble. Aujourd'hui je souhaite mettre mon énergie, mon sens de l'humain et mon esprit d'équipe au service des habitants pour faire vivre une commune dynamique, conviviale et proche de ses citoyens"
         },
@@ -114,36 +114,36 @@ function initTeamSlider(isMobile) {
             name: "Crebassa  Jérôme",
             role: "Formateur à la sécurité routière ", 
             img: "https://picsum.photos/seed/team1/300/300", 
-            descShort: "", 
-            desc: "Je m’engage pour améliorer le cadre de vie à Cépet dans le but d’avoir un village plus animé ou il fait bon vivre ensemble. <br>Je souhaite pouvoir faire remonter les demandes des habitants de tout âge, afin que tout le monde puisse être entendu."
+            descShort: "Jérome, 44 ans, 2 enfants, formateur à la sécurité routière.", 
+            desc: "Je m’engage pour améliorer le cadre de vie à Cépet dans le but d’avoir un village plus animé ou il fait bon vivre ensemble. Je souhaite pouvoir faire remonter les demandes des habitants de tout âge, afin que tout le monde puisse être entendu."
         },
         {
             name: "Ortega  Rébecca",
             role: "assistante de vie", 
             img: "https://picsum.photos/seed/team1/300/300", 
-            descShort: "", 
-            desc: "Je m'appelle Rébecca, j'ai 37 ans, je suis pacsée et j'ai deux enfants de 12 et 8 ans. Je suis assistante de vie auprès de particuliers, je travaille au sein même des foyers. <br>Je m'engage pour défendre les valeurs auxquelles je crois: la solidarité, la transparence et la proximité. De plus je souhaite pouvoir participer activement aux décisions qui impactent directement notre quotidien à tous et pouvoir le faire ensemble. "
+            descShort: "Rébecca, 37 ans, 2 enfants, assistante de vie.", 
+            desc: "Je m'engage pour défendre les valeurs auxquelles je crois : la solidarité, la transparence et la proximité. Je souhaite pouvoir participer activement aux décisions qui impactent notre quotidien à tous et pouvoir le faire ensemble."
         },
         {
             name: "Rivière Julien",
             role: "Responsable E-commerce", 
             img: "./css/DSC00393R Julien_portrait.jpg", 
-            descShort: "", 
-            desc: "Marié, 3 enfants ,responsable E-commerce au sein d'une petite entreprise, je suis également président de l'association Cep'A du jeu, que j'ai créée avec ma femme il y a six ans dans notre village. J'ai démontré ma capacité à mobiliser, fédérer et concrétiser des projets en organisant avec succès trois festivals sur notre commune.<br>Fort de cette expérience associative, je souhaite m'investir dans la vie locale de notre village. Mes compétence professionnelles sont un atout pour dynamiser et moderniser les actions de notre commune.<br>Je rejoins cette liste apolitique pour mettre mon énergie et mon expertise au service d'un seul objectif : rendre notre commune un lieu de vie agréable, stimulant et innovant pour toutes les générations."
+            descShort: "Julien, 41 ans, 3 enfants, responsable E-commerce.", 
+            desc: "Je suis président de l'association Cep'A du jeu. J'aime mobiliser, fédérer et concrétiser des projets comme en organisant avec succès les trois festivals sur notre commune.<br>Fort de cette expérience associative, je souhaite m'investir dans la vie locale de notre village, dynamiser et moderniser les actions de notre commune.<br>Je rejoins cette liste pour mettre mon énergie et mon expertise au service d'un seul objectif : rendre notre commune, un lieu de vie agréable, stimulant et innovant pour toutes les générations."
         },
         {
             name: "CARPANA Jess",
             role: "chauffeur routier", 
             img: "./css/DSC00399R Jess.jpg", 
-            descShort: "", 
-            desc: "Bonjour a tous , je m appelle Jess Carpana, j ai 46 ans ,marié 2 enfans , et je suis installé à Cépet depuis 9 ans. Mon parcours, que ce soit  professionnel ou personnel, m’a toujours conduit à m’engager pour les autres et à travailler de manière collaborative.<br>Si je souhaite aujourd’hui rejoindre l’équipe municipale, c’est avant tout par volonté de contribuer davantage à la vie de notre village. Je suis animé par des valeurs simples : le sens du service, l’écoute, la proximité et la transparence.<br>J’aimerais pouvoir mettre mon énergie au service de projets utiles à tous, comme <br>- le renforcement du lien social -l’amélioration du quotidien des habitants ou encore le soutien aux initiatives locales qui font vivre notre commune.<br>Je suis convaincu que c’est collectivement, dans le respect et le dialogue, que nous pouvons continuer à faire évoluer notre ville de manière positive"
+            descShort: "Jess, 46 ans, 2 enfants, Chauffeur routier.", 
+            desc: "Mes parcours professionnel et personnel, m’ont conduit à m’engager pour les autres et à travailler de manière collaborative.<br>Ma présence dans l’équipe, c’est avant tout une volonté de contribuer davantage à la vie de notre village. Je suis animé par des valeurs simples : le sens du service, l’écoute, la proximité et la transparence.<br>Le renforcement du lien social, l’amélioration du quotidien des habitants ou encore le soutien aux initiatives locales qui font vivre notre commune me semble important.<br>Je suis convaincu que c’est collectivement, dans le respect et le dialogue, que nous pouvons continuer à faire évoluer notre ville de manière positive"
         },
         {
             name: "Rivière Gaëlle",
             role: "Infirmière en mission de coordination", 
             img: "./css/DSC00339R Gaelle_portrait.jpg", 
-            descShort: "", 
-            desc: "Je m’appelle Gaëlle Rivière, j’ai 40 ans mariée 3 enfants et je suis infirmière, actuellement en mission de coordination à la Maison d'Accueil Spécialisée des Marronniers à Cépet. <br>Depuis 2019, j’ai l’honneur d’être présidente du comité des parents d’élèves, rôle à travers lequel j’aime imaginer et organiser des événements pour les enfants du village. <br>Avec mon époux, nous avons également fondé en 2019 l’association Cep’A Du Jeu, dont la vocation est de redonner aux familles et aux amis le plaisir de jouer ensemble et de partager des instants de convivialité et de rires. <br>Cet engagement m’a naturellement donné envie de poursuivre mon investissement auprès de la commune, afin de faire vivre et perdurer des moments festifs et joyeux qui renforcent le lien entre habitants et animent notre village."
+            descShort: "Gaëlle, 40 ans, 3 enfants, Infirmière coordinatrice à Cépet.", 
+            desc: "Depuis 2019, je suis présidente du comité des parents d’élèves. J’aime imaginer et organiser des événements pour les enfants du village.<br>Je suis également co-fondatrice de l’association Cep’A Du Jeu, dont la vocation est de redonner aux familles et aux amis le plaisir de jouer ensemble et de partager des instants de convivialité et de rire. <br>Ces engagements m’ont naturellement donné envie de poursuivre mon investissement auprès de la commune, afin de faire vivre et perdurer des moments festifs et joyeux qui renforcent le lien entre habitants et animent notre village."
         },
         {
             name: "PECAL Sébastien",
@@ -156,7 +156,7 @@ function initTeamSlider(isMobile) {
             name: "SANTAMARIA Laetitia ",
             role: "Educatrice spécialisée", 
             img: "./css/DSC00377R Laëtitia S.jpg", 
-            descShort: "", 
+            descShort: "Laetitia, 41 ans, 2 enfants, Educatrice spécialisée.", 
             desc: "Attachée à notre commune et à ses habitants, je m'engage pour renforcer le lien social, favoriser les échanges entre les générations et être à l'écoute des familles. Mon expérience dans le domaine social me permet de proposer des actions concrètes au service de la solidarité et du vivre-ensemble. Je partage pleinement les valeurs de respect, de partage, de simplicité et de tolérance portées par cette équipe, convaincue qu'ensemble nous pouvons construire une commune plus solidaire, plus écologique et plus dynamique."
         },
 

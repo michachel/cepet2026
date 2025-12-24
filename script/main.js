@@ -220,41 +220,50 @@ function initTeamSlider(isMobile) {
     const totalSlides = Math.ceil(teamMembers.length / perSlide);
 
     function renderTeam() {
-        let html = '';
-
+        let slides = [];
+      
         for (let i = 0; i < teamMembers.length; i += perSlide) {
-            html += '<div class="team-slide">';
-            teamMembers.slice(i, i + perSlide).forEach((m, index) => {
-                const globalIndex = i + index;
-                html += `
-                <div class="team-member">
-                    <img src="${m.img}" alt="${m.name}"  loading="lazy" decoding="async">
-                    <h3>${m.name}</h3>
-                    <p class="role">${m.role}</p>
-                    <button class="team-more" data-index="${globalIndex}">
-                    En savoir +
-                    </button>
-                </div>
-                `;
-            });
-            html += '</div>';
+          let slide = '<div class="team-slide">';
+          teamMembers.slice(i, i + perSlide).forEach((m, index) => {
+            const globalIndex = i + index;
+            slide += `
+              <div class="team-member">
+                <img src="${m.img}" alt="${m.name}" loading="lazy" decoding="async">
+                <h3>${m.name}</h3>
+                <p class="role">${m.role}</p>
+                <button class="team-more" data-index="${globalIndex}">
+                  En savoir +
+                </button>
+              </div>
+            `;
+          });
+          slide += '</div>';
+          slides.push(slide);
         }
-
-        teamSlider.innerHTML = html;
-        updateTeamSlider();
+      
+        // clones
+        const first = slides[0];
+        const last = slides[slides.length - 1];
+      
+        teamSlider.innerHTML = last + slides.join('') + first;
+      
+        teamIndex = 1;
+        updateTeamSlider(false);
         bindMoreButtons();
     }
+      
 
-    function updateTeamSlider() {
+    function updateTeamSlider(withTransition = true) {
         teamSlider.classList.add('is-sliding');
-      
-        teamSlider.style.transform = `translateX(-${teamIndex * 100}%)`;
-      
-        setTimeout(() => {
-          teamSlider.classList.remove('is-sliding');
-        }, 500);
-      }
 
+        teamSlider.style.transition = withTransition ? 'transform 0.5s ease' : 'none';
+        teamSlider.style.transform = `translateX(-${teamIndex * 100}%)`;
+
+        setTimeout(() => {
+            teamSlider.classList.remove('is-sliding');
+        }, 500);
+    }
+      
     function bindMoreButtons() {
         document.querySelectorAll('.team-more').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -262,16 +271,32 @@ function initTeamSlider(isMobile) {
         });
         });
     }
+        
+    teamSlider.addEventListener('transitionend', () => {
+        if (teamIndex === 0 || teamIndex === totalSlides + 1) {
+          teamSlider.style.transition = 'none';
+      
+          teamIndex = teamIndex === 0 ? totalSlides : 1;
+          teamSlider.style.transform = `translateX(-${teamIndex * 100}%)`;
+      
+          // force un reflow propre
+          teamSlider.getBoundingClientRect();
+      
+          requestAnimationFrame(() => {
+            teamSlider.style.transition = 'transform 0.5s ease';
+          });
+        }
+      });
 
     renderTeam();
 
     document.getElementById('prevTeam').onclick = () => {
-        teamIndex = (teamIndex - 1 + totalSlides) % totalSlides;
+        teamIndex--;
         updateTeamSlider();
     };
-
+      
     document.getElementById('nextTeam').onclick = () => {
-        teamIndex = (teamIndex + 1) % totalSlides;
+        teamIndex++;
         updateTeamSlider();
     };
 
@@ -286,8 +311,8 @@ function initTeamSlider(isMobile) {
         modal.style.display = 'flex';
         requestAnimationFrame(() => modal.classList.add('show'));
     }
-        
-        
+
+      
     function closeTeamModal() {
         const modal = document.getElementById('teamModal');
         modal.classList.remove('show');

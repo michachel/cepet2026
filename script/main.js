@@ -25,13 +25,18 @@ function initHeroSlider() {
     let index = 0;
 
     function showSlide(i) {
-        slides.forEach(s => s.classList.remove('active'));
+        slides.forEach((s, idx) => {
+            s.classList.remove('active');
+            s.style.animation = '';
+        });
         dots.forEach(d => d.classList.remove('active'));
         slides[i].classList.add('active');
+        slides[i].style.animation = 'zoom 12s infinite';
         dots[i].classList.add('active');
         heroText.innerHTML = `<h1>${texts[i].title}</h1><p>${texts[i].subtitle}</p><button data-target="${texts[i].dataTarget}">${texts[i].button}</button>`;
         index = i;
     }
+    
 
     showSlide(0);
     setInterval(() => showSlide((index + 1) % slides.length), 5000);

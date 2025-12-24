@@ -359,83 +359,79 @@ section {
     background: #d12d6f;
 }
 
-#teamModal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.45);
-    backdrop-filter: blur(6px);
-    display: none;
+#teamModal .modal-content {
+    display: flex;
+    flex-direction: column; /* mobile par défaut */
     align-items: center;
-    justify-content: center;
-    padding: 20px; /* marge écran */
-    z-index: 1000;
+    padding: 32px 24px;
+    max-width: 900px;
+    width: 95%;
+    background: #fff;
+    border-radius: 24px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15), 0 4px 12px rgba(0,0,0,0.08);
+    gap: 32px;
   }
-
+  
+  /* Layout horizontal pour grands écrans */
+  @media (min-width: 768px) {
+    #teamModal .modal-content {
+      flex-direction: row;
+      align-items: center;  /* <- centrage vertical ici */
+      gap: 40px;
+    }
+  }
+  
+  /* Image beaucoup plus grande */
   #teamModal img {
-    width: 140px;
-    height: 140px;
+    width: 360px;
+    height: 360px;
+    border-radius: 20px;
     object-fit: cover;
     object-position: center 20%;
-    border-radius: 50%;
-    margin-bottom: 16px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.15);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
   }
-
+  
+  /* Texte à droite */
+  #teamModal .modal-text {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    flex: 1;
+  }
+  
+  /* Nom / rôle */
   #teamModal h3 {
-    font-size: 1.4rem;
-    margin: 8px 0 4px;
+    margin: 0;
+    font-size: 1.8rem;
     color: #222;
-    text-align: center;
   }
   
   #teamModal .role {
-    font-size: 0.95rem;
     font-weight: 600;
     color: #f13681;
-    margin-bottom: 16px;
-    text-align: center;
   }
   
-  #teamModal p {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #444;
-    text-align: left;
-  }
-
+  /* Séparateur très large */
   #teamModal .separator {
-    width: 60px;
-    height: 3px;
+    width: 75%; /* 3/4 de la largeur disponible */
+    height: 6px;
     background: #f13681;
     border-radius: 3px;
-    margin: 16px 0 20px;
   }
-
-#teamModal .modal-content {
-    background: #fff;
-    border-radius: 20px;
-    max-width: 640px;
-    width: 100%;
-    padding: 32px 28px;
-    box-shadow:
-      0 20px 40px rgba(0,0,0,0.15),
-      0 2px 8px rgba(0,0,0,0.08);
   
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  /* Texte */
+  #teamModal p {
+    margin: 0;
+    line-height: 1.7;
+    color: #444;
   }
-
-#teamModal.show .modal-content {
-    transform: scale(1);
-    opacity: 1;
-}
-
-#closeTeamModal {
+  
+  /* Fermeture */
+  #closeTeamModal {
     position: absolute;
-    top: 18px;
+    top: 16px;
     right: 20px;
-    font-size: 24px;
+    font-size: 28px;
     cursor: pointer;
     color: #999;
     transition: 0.2s;
@@ -444,7 +440,6 @@ section {
   #closeTeamModal:hover {
     color: #000;
   }
-
 
 /* Vision */
 .vision-description {

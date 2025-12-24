@@ -178,6 +178,35 @@ header.scrolled {
     background: #d12d6f;
 }
 
+.hero .hero-slogan {
+    position: absolute;
+    top: 0%;           /* toujours tout en haut */
+    left: 0%;          /* encore plus à gauche */
+    transform: rotate(-18deg);  /* inclinaison conservée */
+    font-family: 'Pacifico', cursive;
+    font-size: 2.2rem;
+    color: #f13681;
+    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    white-space: pre-line;
+    z-index: 5;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .hero .hero-slogan {
+        font-size: 3rem;
+        top: 0%;
+        left: 2%;       /* légèrement plus centré sur desktop si besoin */
+        transform: rotate(-18deg);
+    }
+}
+
+
+@keyframes sway {
+    0% { transform: translateX(-50%) rotate(-3deg); }
+    100% { transform: translateX(-50%) rotate(3deg); }
+}
+
 /* Dots */
 .dots {
     position: absolute;

@@ -17,7 +17,7 @@ function initHeroSlider() {
     const dots = document.querySelectorAll('.dot');
     const heroText = document.getElementById('hero-text');
     const texts = [
-        { title: 'Jean-Michel Fougeray', subtitle: 'Cépet, un avenir qui nous rassemble', button: 'Découvrez mon équipe', dataTarget: 'equipe' },
+        { title: 'Jean-Michel Fougeray', subtitle: '', button: 'Découvrez mon équipe', dataTarget: 'equipe' },
         { title: 'Pour une vision durable de Cépet', subtitle: '', button: 'Notre vision', dataTarget: 'programme' },
         { title: 'Tous ensemble aux municipales', subtitle: 'On se donne rendez-vous en 2026 !', button: 'S\'inscrire', dataTarget: 'vote' }
     ];

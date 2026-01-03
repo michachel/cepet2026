@@ -2,6 +2,11 @@ body {
     margin: 0;
     background: #f0f0f5;
     overflow-x: hidden;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h2, h3 {
+    font-family: 'Agbalumo';
 }
 
 header {
@@ -160,6 +165,9 @@ header.scrolled {
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     transition: all 0.5s ease;
     max-width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
     z-index: 2;
 }
@@ -205,8 +213,8 @@ header.scrolled {
 .hero-subtitle::after {
     content: "";
     position: absolute;
-    left: -2%;
-    right: -2%;
+    left: 30%;
+    right: 30%;
     bottom: -6px;
     height: 4px;
     background: #f13681;
@@ -563,6 +571,7 @@ section h2 {
     display: flex;
     align-items: center;
     gap: 10px;
+    color: #4CAF50;
 }
 
 .vision .postit p{

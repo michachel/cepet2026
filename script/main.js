@@ -17,7 +17,7 @@ function initHeroSlider() {
     const dots = document.querySelectorAll('.dot');
     const heroText = document.getElementById('hero-text');
     const texts = [
-        { title: 'Jean-Michel Fougeray', subtitle: '', button: 'Découvrez mon équipe', dataTarget: 'equipe' },
+        { title: 'Jean-Michel Fougeray', subtitle: '', button: 'Découvrez l’équipe qui m’accompagne', dataTarget: 'equipe' },
         { title: 'Pour une vision durable de Cépet', subtitle: '', button: 'Notre vision', dataTarget: 'programme' },
         { title: 'Tous ensemble aux municipales', subtitle: 'On se donne rendez-vous en 2026 !', button: 'S\'inscrire', dataTarget: 'vote' }
     ];
@@ -336,89 +336,6 @@ function truncateText(text, maxLength) {
     return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
 }
 
-// === Actus Slider & Modal ===
-function initActus(isMobile) {
-    const actusData = [
-        { title: 'Réunion publique avec les habitants', text: 'une très longue actualités mais c\'est ok pas besoin d\'en faire tout un drame on va voir jusqu\'où ça va mais faut continuer longtemps pour arriver jusqu\'au trois petits points.', date: '15 décembre 2024', img: 'https://picsum.photos/seed/actus1/400/250' },
-        { title: 'Rénovation du centre-ville', text: '...', date: '10 décembre 2024', img: 'https://picsum.photos/seed/actus2/400/250' },
-        { title: 'Nouvelle saison des activités associatives', text: '...', date: '5 décembre 2024', img: 'https://picsum.photos/seed/actus3/400/250' },
-        { title: 'Nouvelle saison des activités associatives', text: '...', date: '5 décembre 2024', img: 'https://picsum.photos/seed/actus3/400/250' }
-    ];
-
-    const actusSlider = document.getElementById('actusSlider');
-    
-    const perSlide = isMobile ? 1 : 3;
-    let actusIndex = 0;
-
-
-    function renderActus() {
-        let html = '';
-        for (let i = 0; i < actusData.length; i += perSlide) {
-            html += '<div class="actus-slide"><div class="actus-cards">';
-            actusData.slice(i, i + perSlide).forEach((article, idx) => {
-                const globalIndex = i + idx;
-                html += `<div class="actus-card">
-                            <img src="${article.img}" alt="${article.title}">
-                            <h3>${article.title}</h3>
-                            <p class="actus-description">${truncateText(article.text, 150)}</p>
-                            <div class="actus-footer">
-                                <span class="actus-date">${article.date}</span>
-                                <a href="#" class="actus-link" data-index="${globalIndex}">Lire l'article</a>
-                            </div>
-                            </div>`;
-            });
-            html += '</div></div>';
-        }
-        actusSlider.innerHTML = html;
-
-        document.querySelectorAll('.actus-link').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                openActusModal(parseInt(link.dataset.index));
-            });
-        });
-        updateActusSlider();
-    }
-
-    function updateActusSlider() {
-        actusSlider.style.transform = `translateX(-${actusIndex*100}%)`;
-    }
-
-    function openActusModal(index) {
-        const modal = document.getElementById('actusModal');
-        const article = actusData[index];
-        modal.querySelector('.modal-image').src = article.img;
-        modal.querySelector('.modal-image').alt = article.title;
-        modal.querySelector('.modal-title').textContent = article.title;
-        modal.querySelector('.modal-text').textContent = article.text;
-        modal.querySelector('.modal-date').textContent = article.date;
-        modal.style.display = 'flex';
-    }
-
-    function closeActusModal() {
-        document.getElementById('actusModal').style.display='none';
-    }
-
-    document.getElementById('closeModal').addEventListener('click', closeActusModal);
-    document.getElementById('actusModal').addEventListener('click', e => {
-        if(e.target.id==='actusModal') closeActusModal();
-    });
-    document.addEventListener('keydown', e => {
-        if(e.key==='Escape') closeActusModal();
-    });
-
-    renderActus();
-
-    document.getElementById('prevActus').addEventListener('click', () => {
-        actusIndex = (actusIndex-1 + Math.ceil(actusData.length/perSlide)) % Math.ceil(actusData.length/perSlide);
-        updateActusSlider();
-    });
-    document.getElementById('nextActus').addEventListener('click', () => {
-        actusIndex = (actusIndex+1) % Math.ceil(actusData.length/perSlide);
-        updateActusSlider();
-    });
-}
-
 function initGallery(isMobile) {
     const galleryImages = [
         { src: "css/recto flyer 2025.jpg", thumb: "css/recto flyer 2025.jpg", alt: "recto flyer élection municipale 2025" },
@@ -523,7 +440,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initHeader();
     initHeroSlider();
     initTeamSlider(isMobile);
-    initActus(isMobile);
     initGallery(isMobile);
     initContact();
     initScrollTop();

@@ -428,6 +428,8 @@ renderGallery();
 
 function initContact()
 {
+    emailjs.init("H6BNibIlXuJ0F4ypL");
+
     const form = document.getElementById('contactForm');
     const messageEl = document.getElementById('contactMessage');
 
@@ -442,12 +444,30 @@ function initContact()
             return; // on ne fait rien
         }
 
-        // Simulation d’envoi OK
-        messageEl.textContent = "Merci pour votre message, il a bien été envoyé.";
-        messageEl.style.display = 'block';
-        messageEl.style.color = '#4CAF50';
+        const formData = {
+            prenom: form.prenom.value,
+            nom: form.nom.value,
+            email: form.email.value,
+            message: form.message.value
+        };
 
-        form.reset();
+        messageEl.style.display = 'block';
+        messageEl.style.color = '#333';
+        messageEl.textContent = "Envoi du message en cours...";
+
+        emailjs.send(
+            "service_okyh1u8",
+            "template_5vg0b92",
+            formData
+        ).then(() => {
+            messageEl.textContent = "Merci pour votre message, il a bien été envoyé.";
+            messageEl.style.color = '#4CAF50';
+            form.reset();
+        }).catch(err => {
+            console.error(err);
+            messageEl.textContent = "Une erreur est survenue. Veuillez réessayer plus tard.";
+            messageEl.style.color = '#e53935';
+        });
     });
 }
 

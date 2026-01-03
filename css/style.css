@@ -395,7 +395,7 @@ section h2 {
     aspect-ratio: 1 / 1;
     object-fit: cover;
     object-position: center 20%;
-    border-radius: 50%; /* optionnel si avatar rond */
+    border-radius: 20%; /* optionnel si avatar rond */
   }
 
 .team-nav {

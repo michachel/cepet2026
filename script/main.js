@@ -39,7 +39,7 @@ function initHeroSlider() {
     
 
     showSlide(0);
-    setInterval(() => showSlide((index + 1) % slides.length), 5000);
+    setInterval(() => showSlide((index + 1) % slides.length), 10000);
 
     dots.forEach(dot => {
         dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.index)));

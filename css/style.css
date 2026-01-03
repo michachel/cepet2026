@@ -112,6 +112,7 @@ header.scrolled {
     position: absolute;
     top: 0;
     left: 0;
+    z-index: 0;
 }
 
 .slide {
@@ -125,6 +126,16 @@ header.scrolled {
     opacity: 0;
     transition: opacity 0.8s ease, transform 12s ease;
     transform: scale(1);
+}
+
+.slide-groupe {
+    background-position: center;
+}
+
+@media (max-width: 768px) {
+    .slide-groupe {
+        background-position: 65% center;
+    }
 }
 
 .slide.active {
@@ -149,6 +160,8 @@ header.scrolled {
     text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
     transition: all 0.5s ease;
     max-width: 90%;
+    
+    z-index: 2;
 }
 
 .hero-content h1 {
@@ -181,22 +194,22 @@ header.scrolled {
 .hero .hero-slogan {
     position: absolute;
     top: 0%;           /* toujours tout en haut */
-    left: 0%;          /* encore plus à gauche */
+    left: 5%;          /* encore plus à gauche */
     transform: rotate(-18deg);  /* inclinaison conservée */
     font-family: 'Pacifico', cursive;
     font-size: 2.2rem;
     color: #f13681;
     text-shadow: 0 2px 6px rgba(0,0,0,0.3);
     white-space: pre-line;
-    z-index: 5;
+    z-index: 2;
 }
 
 /* Responsive */
 @media (min-width: 768px) {
     .hero .hero-slogan {
         font-size: 3rem;
-        top: 0%;
-        left: 2%;       /* légèrement plus centré sur desktop si besoin */
+        top: -10%;
+        left: 0%;       /* légèrement plus centré sur desktop si besoin */
         transform: rotate(-18deg);
     }
 }
@@ -210,11 +223,12 @@ header.scrolled {
 /* Dots */
 .dots {
     position: absolute;
-    bottom: 120px;
+    bottom: 100px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     gap: 12px;
+    z-index: 2;
 }
 
 .dot {
@@ -243,7 +257,8 @@ header.scrolled {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.25);
+    background: rgba(0,0,0,0.35);
+    z-index: 1;
 }
 
 

@@ -17,7 +17,7 @@ function initHeroSlider() {
     const dots = document.querySelectorAll('.dot');
     const heroText = document.getElementById('hero-text');
     const texts = [
-        { title: 'Jean-Michel Fougeray', subtitle: '', button: 'Découvrez l’équipe qui m’accompagne', dataTarget: 'equipe' },
+        { title: 'Jean-Michel Fougeray', subtitle: 'Cépet, un avenir qui nous rassemble', button: 'Découvrez l’équipe qui m’accompagne', dataTarget: 'equipe' },
         { title: 'Pour une vision durable de Cépet', subtitle: '', button: 'Notre vision', dataTarget: 'programme' },
         { title: 'Tous ensemble aux municipales', subtitle: 'On se donne rendez-vous en 2026 !', button: 'S\'inscrire', dataTarget: 'vote' }
     ];
@@ -33,7 +33,9 @@ function initHeroSlider() {
         slides[i].classList.add('active');
         slides[i].style.animation = 'zoom 12s infinite';
         dots[i].classList.add('active');
-        heroText.innerHTML = `<h1>${texts[i].title}</h1><p>${texts[i].subtitle}</p><button data-target="${texts[i].dataTarget}">${texts[i].button}</button>`;
+        let heroclass = "";
+        if (texts[i].dataTarget == 'equipe') heroclass = "hero-subtitle";
+        heroText.innerHTML = `<h1>${texts[i].title}</h1><p class="${heroclass}">${texts[i].subtitle}</p><button data-target="${texts[i].dataTarget}">${texts[i].button}</button>`;
         index = i;
     }
     

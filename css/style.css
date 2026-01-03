@@ -191,28 +191,30 @@ header.scrolled {
     background: #d12d6f;
 }
 
-.hero .hero-slogan {
-    position: absolute;
-    top: 0%;           /* toujours tout en haut */
-    left: 5%;          /* encore plus à gauche */
-    transform: rotate(-18deg);  /* inclinaison conservée */
-    font-family: 'Pacifico', cursive;
-    font-size: 2.2rem;
-    color: #f13681;
-    text-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    white-space: pre-line;
-    z-index: 2;
+.hero-subtitle {
+    position: relative;
+    display: inline-block;
+    font-family: 'Agbalumo', cursive;
+    font-size: 1.3rem;
+    color: #fff;
+    margin-top: 10px;
+    transform: rotate(-1.5deg); /* très léger biais */
 }
 
-/* Responsive */
-@media (min-width: 768px) {
-    .hero .hero-slogan {
-        font-size: 3rem;
-        top: -10%;
-        left: 0%;       /* légèrement plus centré sur desktop si besoin */
-        transform: rotate(-18deg);
-    }
+/* soulignement manuscrit */
+.hero-subtitle::after {
+    content: "";
+    position: absolute;
+    left: -2%;
+    right: -2%;
+    bottom: -6px;
+    height: 4px;
+    background: #f13681;
+    border-radius: 10px;
+    transform: rotate(-1deg);
 }
+
+
 
 
 @keyframes sway {
@@ -264,6 +266,10 @@ header.scrolled {
 
 section {
     padding: 60px 20px;
+}
+
+section h2 {
+    color: #4CAF50;
 }
 
 /* Candidat */
@@ -453,6 +459,12 @@ section {
       gap: 40px;
     }
   }
+
+  .social-banner h2,
+  .vote-banner h2
+  {
+    color: white;
+  }
   
   /* Image beaucoup plus grande */
   #teamModal img {
@@ -576,7 +588,6 @@ section {
 }
 .contact-section h2 {
     margin-bottom: 20px;
-    color: #fff;
 }
 
 .contact-section a {
@@ -595,106 +606,6 @@ section {
     background: #f13681;
 }
 
-/* Actus */
-.actus-slider-container {
-    position: relative;
-    max-width: 900px;
-    margin: 40px auto;
-    overflow: hidden;
-}
-
-.actus-slider {
-    display: flex;
-    transition: transform 0.5s ease;
-}
-
-.actus-slide {
-    min-width: 100%;
-}
-
-.actus-cards {
-    display: grid;
-    gap: 20px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.actus-card {
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.actus-card img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.actus-card h3 {
-    padding: 15px 15px 10px;
-    margin: 0;
-    font-size: 1.2em;
-}
-
-.actus-description {
-    padding: 0 15px;
-    margin: 0 0 15px;
-    color: #666;
-    line-height: 1.5;
-}
-
-.actus-footer {
-    padding: 10px 15px 15px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid #eee;
-    margin-top: auto;
-}
-
-.actus-date {
-    color: #999;
-    font-size: 0.9em;
-}
-
-.actus-link {
-    padding: 5px 15px;
-    background: #f13681;
-    color: #fff;
-    border-radius: 4px;
-    text-decoration: none;
-    font-size: 0.9em;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.actus-link:hover {
-    background: #d12d6f;
-}
-
-.actus-nav {
-    text-align: center;
-    margin-top: 20px;
-}
-
-.actus-nav button {
-    padding: 5px 10px;
-    margin: 0 5px;
-    border: none;
-    background: #f13681;
-    color: #fff;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.actus-nav button:hover {
-    background: #d12d6f;
-}
 
 /* Gallery */
 .gallery-slider-container {

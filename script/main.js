@@ -18,8 +18,7 @@ function initHeroSlider() {
     const heroText = document.getElementById('hero-text');
     const texts = [
         { title: 'Jean-Michel Fougeray', subtitle: 'Cépet, un avenir qui nous rassemble', button: 'Découvrez l’équipe qui m’accompagne', dataTarget: 'equipe' },
-        { title: 'Pour une vision durable de Cépet', subtitle: '', button: 'Notre vision', dataTarget: 'programme' },
-        { title: 'Tous ensemble aux municipales', subtitle: 'On se donne rendez-vous en 2026 !', button: 'S\'inscrire', dataTarget: 'vote' }
+        { title: 'Pour une vision durable de Cépet', subtitle: '', button: 'Notre vision', dataTarget: 'programme' }
     ];
 
     let index = 0;
@@ -186,7 +185,7 @@ function initTeamSlider(isMobile) {
         {
             name: "Mir-Mesnier Lucile",
             role: "Technicienne de laboratoire d'analyse médicale", 
-            img: "https://picsum.photos/seed/team1/300/300", 
+            img: "./css/DSC00363 Lucile_portrait.webp", 
             descShort: "Lucile, 37 ans, 2 enfants, technicienne de laboratoire d’analyse médicale.", 
             desc: "Ayant grandi en partie dans ce village, j’ai vu évoluer Cépet et j’ai souhaité y construire ma famille. Je souhaite conserver un cadre de vie bienveillant et paisible ainsi qu’une âme de village accueillant pour tous. Selon moi, cela passe entre autres par une dynamisation de la commune et une écoute de tous."
         },
@@ -208,7 +207,7 @@ function initTeamSlider(isMobile) {
         },
 
         {
-            name: "C. Sébastien",
+            name: "Castel Sébastien",
             role: "Poissonnier", 
             img: "./css/DSC00346R Portrait Sébastien C.webp", 
             descShort: "", 

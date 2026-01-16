@@ -275,7 +275,8 @@ function initTeamSlider(isMobile) {
             slide += `
               <div class="team-member">
                 <img src="${m.img}" alt="${m.name}" loading="lazy" decoding="async">
-                <h3>${m.name} - ${m.age} ans</h3>
+                <h3>${m.name}</h3>
+                <h3>${m.age} ans</h3>
                 <p class="role">${m.role}</p>
                 <button class="team-more" data-index="${globalIndex}">
                   En savoir +

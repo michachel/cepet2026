@@ -67,8 +67,16 @@ header.scrolled {
         display: flex;
     }
     .candidat-content {
+        display: flex;
         flex-direction: column;
         align-items: center;
+    }
+    #candidat img {
+        float: none;
+        margin-right: 0;
+        margin-bottom: 20px;
+        width: 100%;
+        max-width: 300px;
     }
     .candidat-text {
         max-width: 100%;
@@ -303,28 +311,24 @@ section h2 {
 }
 
 .candidat-content {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-    gap: 30px;
-    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 0 auto;
+    overflow: hidden;
 }
 
 #candidat img {
     width: 300px;
     max-width: 100%;
     border-radius: 10px;
-    flex-shrink: 0;
+    float: left;
+    margin-right: 30px;
+    margin-bottom: 20px;
+    shape-outside: margin-box;
 }
 
 .candidat-text {
-    display: flex;
-    flex-direction: column;
+    display: block;
     text-align: left;
-    flex: 1;
-    min-width: 250px;
-    max-width: 100%;
 }
 
 .candidat-description {

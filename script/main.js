@@ -17,8 +17,8 @@ function initHeroSlider() {
     const dots = document.querySelectorAll('.dot');
     const heroText = document.getElementById('hero-text');
     const texts = [
-        { title: 'Candidat à l\'élection municipale<br>Jean-Michel Fougeray', subtitle: 'Cépet, un avenir qui nous rassemble', button: 'Découvrez l’équipe qui m’accompagne', dataTarget: 'equipe' },
-        { title: 'Pour une vision durable de Cépet', subtitle: '', button: 'Notre vision', dataTarget: 'programme' }
+        { title: 'Élections Municipales du 15 mars 2026<br>CÉPET', subtitle: 'Cépet, un avenir qui nous rassemble', button: 'Avec la liste citoyenne conduite par Jean-Michel FOUGERAY', dataTarget: 'equipe' },
+        { title: 'Ensemble, préparons l’avenir de notre village', subtitle: '', button: 'Nos engagements', dataTarget: 'programme' }
     ];
 
     let index = 0;
@@ -60,7 +60,7 @@ function initTeamSlider(isMobile) {
     const teamMembers = [
         {
             name: "Mickaël COULOMBEL",
-            role: "Ingénieur d'application",
+            role: "Ingénieur d'Application",
             age: "36",
             order: 7,
             img: "./css/DSC00384R Portrait Mickaël.webp", 
@@ -69,7 +69,7 @@ function initTeamSlider(isMobile) {
         },
         {
             name: "Marion PLAGES VERT",
-            role: "Infirmière puéricultrice", 
+            role: "Infirmière Puéricultrice", 
             age: "38",
             order: 8,
             img: "./css/DSC00425R Portrait Marion.webp", 
@@ -78,7 +78,7 @@ function initTeamSlider(isMobile) {
         },
         {
             name: "Laure MAZARS",
-            role: "Assistante maternelle", 
+            role: "Assistante Maternelle", 
             age: "39",
             order: 14,
             img: "./css/DSC00371R Portrait Laure.webp", 
@@ -88,25 +88,25 @@ function initTeamSlider(isMobile) {
 
         {
             name: "Thomas POTTIER",
-            role: "Chef d'équipe ", 
+            role: "Chef d’Équipe dans l’Aéronautique", 
             age: "38",
             order: 13,
             img: "./css/DSC00992R Portrait Thomas.webp", 
             descShort: "Thomas POTTIER – 38 ans – 2 enfants – Chef d’Équipe dans l’Aéronautique", 
-            desc: "Attaché à la vie locale, je souhaite m’investir activement pour la commune de Cépet et contribuer à l’amélioration du cadre de vie. Sensible aux enjeux du quotidien et à la qualité du vivre ensemble, je m’engage dans une démarche de proximité et d’écoute des habitants.<br<Chef d’équipe dans le secteur aéronautique, je dispose d’une expérience fondée sur la coordination, le sens des responsabilités et le travail collectif. Très attaché aux valeurs de transparence, de dialogue et de vie familiale ma volonté est de mettre mes compétences au service d’une action municipale constructive tournée vers l’intérêt général."
+            desc: "Attaché à la vie locale, je souhaite m’investir activement pour la commune de Cépet et contribuer à l’amélioration du cadre de vie. Sensible aux enjeux du quotidien et à la qualité du vivre ensemble, je m’engage dans une démarche de proximité et d’écoute des habitants.<br><br>Chef d’équipe dans le secteur aéronautique, je dispose d’une expérience fondée sur la coordination, le sens des responsabilités et le travail collectif. Très attaché aux valeurs de transparence, de dialogue et de vie familiale ma volonté est de mettre mes compétences au service d’une action municipale constructive tournée vers l’intérêt général."
         },
         {
             name: "Mélanie CAILLAUD",
-            role: "Manager cheffe de projet", 
+            role: "Manager Cheffe de projet", 
             age: "40",
             order: 2,
             img: "./css/DSC00412R Portrait Mélanie.webp", 
-            descShort: "Mélanie CAILLAUD - 40 ans – 2 enfants - Manager Cheffe de projet.", 
+            descShort: "Mélanie CAILLAUD - 40 ans – 2 enfants - Manager Cheffe de projet", 
             desc: "Je suis engagée depuis plusieurs années dans la vie locale, notamment au sein des Délégués de Parents d’Elèves et du Comité des parents d’élèves. À ce titre, J’ai acquis une connaissance précise des attentes des familles et du fonctionnement des instances éducatives et associatives de la commune. J’ai, par exemple, participé aux commissions restauration et périscolaires organisées par la municipalité et j’ai pu siéger au Conseil d'École.<br><br>Professionnelle du management et de la conduite de projets, je dispose d’une solide expérience en organisation, en coordination d’équipes et en pilotage d’actions collectives. Ces compétences constituent des atouts essentiels pour contribuer efficacement à l’action municipale et à la mise en œuvre de projets structurants pour la commune de Cépet.<br><br>Attachée aux valeurs de service public, de responsabilité et d’intégrité, je souhaite mettre mon engagement et mon expertise au service de l’intérêt général, dans une démarche constructive, rigoureuse et tournée vers l’amélioration du cadre de vie et du bien-vivre ensemble à Cépet."
         },
         {
             name: "Bruno GARRIGUES",
-            role: "ingénieur aéronautique", 
+            role: "Ingénieur Aéronautique", 
             age: "42",
             order: 5,
             img: "./css/DSC00477R Portrait Bruno.webp", 
@@ -116,7 +116,7 @@ function initTeamSlider(isMobile) {
         
         {
             name: "Laetitia LE GALLO",
-            role: "AESH / Reflexologue", 
+            role: "AESH / Réflexologue", 
             age: "48",
             order: 4,
             img: "./css/DSC00353 Portrait Laetitia LG.webp", 
@@ -130,20 +130,20 @@ function initTeamSlider(isMobile) {
             order: 6,
             img: "./css/DSC00536R Portrait Céline.webp", 
             descShort: "Céline FOLLET BOTELLA – 47 ans – 1 enfant – Assistante de Direction", 
-            desc: "Forte de 18 années d’expérience dans le domaine social, je suis profondément attachée aux valeurs d’écoute, de solidarité et de respect. Investie dans la vie locale, je m’engage avec conviction au service des habitants et du lien social au sein de la commune.<br><br>Assistante de direction, je dispose d’une solide expérience en organisation, en gestion administrative et en coordination. Mon parcours professionnel m’a permis de développer rigueur, sens des responsabilités et esprit d’équipe, des compétences utiles à l’action municipale et au travail collectif.<br><br>Présidente d’association syndicale de propriétaires (ASL) , Je souhaite mettre mon énergie, mon sens de l’humain et mon engagement au service de l’intérêt général, dans une démarche constructive et tournée vers une commune dynamique, conviviale et proche de ses citoyens."
+            desc: "Forte de 18 années d’expérience dans le domaine social, je suis profondément attachée aux valeurs d’écoute, de solidarité et de respect. Investie dans la vie locale, je m’engage avec conviction au service des habitants et du lien social au sein de la commune.<br><br>Assistante de direction, je dispose d’une solide expérience en organisation, en gestion administrative et en coordination. Mon parcours professionnel m’a permis de développer rigueur, sens des responsabilités et esprit d’équipe, des compétences utiles à l’action municipale et au travail collectif.<br><br>Présidente d’association syndicale de propriétaires (ASL), je souhaite mettre mon énergie, mon sens de l’humain et mon engagement au service de l’intérêt général, dans une démarche constructive et tournée vers une commune dynamique, conviviale et proche de ses citoyens."
         },
         {
             name: "Jérôme CREBASSA",
-            role: "Formateur à la sécurité routière ", 
+            role: "Formateur à la Sécurité Routière ", 
             age: "44",
             order: 11,
             img: "./css/DSC00459R Portrait Jérôme.webp", 
             descShort: "Jérôme CREBASSA – 44 ans – 2 enfants – Formateur à la Sécurité Routière", 
-            desc: "Engagé pour l’amélioration du cadre de vie à Cépet, je souhaite contribuer à une commune dynamique et agréable à vivre, où le bien-vivre ensemble occupe une place centrale. Attentif aux réalités du quotidien, je serai à l’écoute des habitants de tous âges et soucieux de faire remonter leurs attentes.<br><br>Formateur à la sécurité routière, je dispose d’une expérience fondée sur la prévention, la pédagogie et la responsabilisation. Mon parcours professionnel m’a permis de développer des compétences en sensibilisation, en transmission des savoirs et en accompagnement, utiles à l’action municipale et aux projets de sécurité et de mobilité.<br><br>Attaché aux valeurs de proximité, de dialogue et de participation citoyenne, je m’engage au sein de l’équipe municipale pour contribuer à des actions concrètes en faveur de la sécurité, de la qualité de vie et d’une gouvernance attentive aux besoins de de toutes et tous."
+            desc: "Engagé pour l’amélioration du cadre de vie à Cépet, je souhaite contribuer à une commune dynamique et agréable à vivre, où le bien-vivre ensemble occupe une place centrale. Attentif aux réalités du quotidien, je serai à l’écoute des habitants de tous âges et soucieux de faire remonter leurs attentes.<br><br>Formateur à la sécurité routière, je dispose d’une expérience fondée sur la prévention, la pédagogie et la responsabilisation. Mon parcours professionnel m’a permis de développer des compétences en sensibilisation, en transmission des savoirs et en accompagnement, utiles à l’action municipale et aux projets de sécurité et de mobilité.<br><br>Attaché aux valeurs de proximité, de dialogue et de participation citoyenne, je m’engage au sein de l’équipe municipale pour contribuer à des actions concrètes en faveur de la sécurité, de la qualité de vie et d’une gouvernance attentive aux besoins de toutes et tous."
         },
         {
             name: "Rebecca ORTEGA",
-            role: "assistante de vie", 
+            role: "Assistante de Vie", 
             age: "37",
             order: 12,
             img: "./css/DSC00526 Portrait Rebecca.webp", 
@@ -157,29 +157,29 @@ function initTeamSlider(isMobile) {
             order: 3,
             img: "./css/DSC00393R Portrait Julien.webp", 
             descShort: "Julien RIVIÈRE - 41 ans – 3 enfants - Responsable E-commerce", 
-            desc: "Engagé depuis plusieurs années dans la vie associative locale en tant que Président de l’association Cep’A du Jeu, j’ai conduit et coordonné l’organisation de plusieurs événements pour la commune, dont trois festivals, en mobilisant bénévoles, partenaires et acteurs locaux.<br><br>Professionnel du numérique et du développement commercial, je dispose d’une solide expérience en gestion de projets, en organisation et en pilotage d’actions collectives. Je mettrai à profit ces compétences pour accompagner la modernisation des services, renforcer la communication et soutenir le dynamisme local de notre village.<br><br>Souhaitant m’investir durablement dans la vie publique, je souhaite mettre mon énergie et mon expertise au service de l’intérêt général, avec pour objectif de contribuer à une commune de Cépet plus attractive, plus innovante et plus attentive aux besoins de l’ensemble de ses habitants"
+            desc: "Engagé depuis plusieurs années dans la vie associative locale en tant que Président de l’association Cep’A du Jeu, j’ai conduit et coordonné l’organisation de plusieurs événements pour la commune, dont trois festivals, en mobilisant bénévoles, partenaires et acteurs locaux.<br><br>Professionnel du numérique et du développement commercial, je dispose d’une solide expérience en gestion de projets, en organisation et en pilotage d’actions collectives. Je mettrai à profit ces compétences pour accompagner la modernisation des services, renforcer la communication et soutenir le dynamisme local de notre village.<br><br>Souhaitant m’investir durablement dans la vie publique, je souhaite mettre mon énergie et mon expertise au service de l’intérêt général, avec pour objectif de contribuer à une commune de Cépet plus attractive, plus innovante et plus attentive aux besoins de l’ensemble de ses habitants."
         },
         {
-            name: "Jess Carpana",
-            role: "chauffeur routier", 
+            name: "Jess CARPANA",
+            role: "Chauffeur Routier", 
             age: "46",
             order: 9,
             img: "./css/DSC00399R Portrait Jess.webp", 
-            descShort: "Jess Carpana - 46 ans - 2 enfants - Chauffeur routier", 
-            desc: "Mes parcours professionnel et personnel, m’ont conduit à m’engager pour les autres et à travailler de manière collaborative.<br><br>Ma présence dans l’équipe, c’est avant tout une volonté de contribuer davantage à la vie de notre village. Je suis animé par des valeurs simples : le sens du service, l’écoute, la proximité et la transparence.<br><br>Le renforcement du lien social, l’amélioration du quotidien des habitants ou encore le soutien aux initiatives locales qui font vivre notre commune me semble important.<br><br>Je suis convaincu que c’est collectivement, dans le respect et le dialogue, que nous pouvons continuer à faire évoluer notre ville de manière positive"
+            descShort: "Jess CARPANA - 46 ans - 2 enfants - Chauffeur Routier", 
+            desc: "Mes parcours professionnel et personnel, m’ont conduit à m’engager pour les autres et à travailler de manière collaborative.<br><br>Ma présence dans l’équipe, c’est avant tout une volonté de contribuer davantage à la vie de notre village. Je suis animé par des valeurs simples : le sens du service, l’écoute, la proximité et la transparence.<br><br>Le renforcement du lien social, l’amélioration du quotidien des habitants ou encore le soutien aux initiatives locales qui font vivre notre commune me semble important.<br><br>Je suis convaincu que c’est collectivement, dans le respect et le dialogue, que nous pouvons continuer à faire évoluer notre village de manière positive"
         },
         {
             name: "Gaëlle RIVIÈRE",
-            role: "Infirmière en mission de coordination", 
+            role: "Infirmière en Mission de Coordination", 
             age: "40",
             order: 10,
             img: "./css/DSC00339R Portrait Gaëlle.webp", 
-            descShort: "Gaëlle RIVIÈRE – 40 ans – 3 enfants – Infirmière en mission de coordination à Cépet", 
+            descShort: "Gaëlle RIVIÈRE – 40 ans – 3 enfants – Infirmière en Mission de Coordination à Cépet", 
             desc: "Engagée dans la vie locale depuis plusieurs années, je m’investis activement au service des familles et du lien social au sein de la commune. Présidente du comité des parents d’élèves depuis 2019, je participe à l’organisation de nombreux événements destinés aux enfants et aux familles, favorisant les temps de rencontre et de convivialité.<br><br>Infirmière coordinatrice à Cépet, j’exerce un métier fondé sur l’écoute, la coordination et le travail en équipe. Mon parcours professionnel m’a permis de développer des compétences en organisation, en accompagnement et en gestion de projets collectifs, utiles à l’action municipale et à la vie associative locale.<br><br>Co-fondatrice de l’association Cép’A du jeu, je souhaite désormais poursuivre mon engagement au service de la commune afin de faire vivre et pérenniser des moments festifs et fédérateurs, renforçant le lien entre les habitants et contribuant à une commune dynamique, solidaire et conviviale."
         },
         {
             name: "Sébastien PÉCAL",
-            role: "Manager dans l'aéronautique ", 
+            role: "Responsable Qualité Aéronautique", 
             age: "42",
             order: 15,
             img: "./css/DSC00433R Portait Sébastien P.webp", 
@@ -188,17 +188,17 @@ function initTeamSlider(isMobile) {
         },
         {
             name: "Laetitia SANTAMARIA",
-            role: "Educatrice spécialisée", 
+            role: "Éducatrice Spécialisée", 
             age: "41",
             order: 18,
             img: "./css/DSC00377R Portrait Laëtitia S.webp", 
             descShort: "Laetitia SANTAMARIA – 41 ans – 2 enfants – Éducatrice Spécialisée", 
-            desc: "Attachée à la commune de Cépet et à ses habitant.e.s, mon souhait est de m’engager pour renforcer le lien social et favoriser les échanges entre les générations. À l’écoute des familles, je porte une attention particulière aux besoins des publics les plus fragiles et au vivre-ensemble au sein du village.<br><br>Éducatrice spécialisée, je dispose d’une solide expérience dans le domaine social. Mon approche est concrète, humaine et adaptée. Elle est fondée sur l’accompagnement, la médiation et la coopération, des compétences utiles à l’action municipale."
+            desc: "Attachée à la commune de Cépet et à ses habitant.e.s, mon souhait est de m’engager pour renforcer le lien social et favoriser les échanges entre les générations. À l’écoute des familles, je porte une attention particulière aux besoins des publics les plus fragiles et au vivre-ensemble au sein du village.<br><br>Éducatrice spécialisée, je dispose d’une solide expérience dans le domaine social. Mon approche est concrète, humaine et adaptée. Elle est fondée sur l’accompagnement, la médiation et la coopération, des compétences utiles à l’action municipale.<br><br>Partageant pleinement les valeurs de respect, de solidarité, de simplicité et de tolérance portées par l’équipe, je m’inscrit dans une démarche collective, constructive, écologique et plus dynamique à Cépet."
         },
 
         {
             name: "Marlène BAGNERIS",
-            role: "Retraitée", 
+            role: "Technicienne de Laboratoire à la Retraite", 
             age: "72",
             order: 16,
             img: "./css/DSC00498RR Portrait Marlène.webp", 
@@ -218,21 +218,21 @@ function initTeamSlider(isMobile) {
 
         {
             name: "Lucile MIR-MESNIER",
-            role: "Technicienne de laboratoire d'analyse médicale", 
+            role: "Technicienne de Laboratoire d’Analyses Médicales", 
             age: "37",
             order: 20,
             img: "./css/DSC00363 Lucile_portrait.webp", 
-            descShort: "Lucile MIR-MESNIER – 37 ans – 2 enfants – Technicienne de laboratoire d’analyses médicales", 
-            desc: "Ayant grandi en partie à Cépet, je suis très attentive à l’évolution de la commune et au cadre de vie qu’elle offre à ses habitants. J’ai fait le choix de fonder ma famille dans le village qui m’a vu grandir. Ma volonté est de préserver une qualité de vie bienveillante, paisible et une véritable âme de village, accueillante pour tous.<br><br>Technicienne de laboratoire d’analyses médicales, je suis très rigoureuse et j’ai le sens des responsabilités. Je travaille avec méthode, fiabilité et respect des protocoles, des compétences utiles à l’action collective et à la gestion de projets au service de notre village. Attachée à l’écoute, au dialogue et à la participation citoyenne, je souhaite servir ma commune dans une démarche collective visant à dynamiser la commune de Cépet."
+            descShort: "Lucile MIR-MESNIER – 37 ans – 2 enfants – Technicienne de Laboratoire d’Analyses Médicales", 
+            desc: "Ayant grandi en partie à Cépet, je suis très attentive à l’évolution de la commune et au cadre de vie qu’elle offre à ses habitants. J’ai fait le choix de fonder ma famille dans le village qui m’a vue grandir. Ma volonté est de préserver une qualité de vie bienveillante, paisible et une véritable âme de village, accueillante pour tous.<br><br>Technicienne de laboratoire d’analyses médicales, je suis très rigoureuse et j’ai le sens des responsabilités. Je travaille avec méthode, fiabilité et respect des protocoles, des compétences utiles à l’action collective et à la gestion de projets au service de notre village. Attachée à l’écoute, au dialogue et à la participation citoyenne, je souhaite servir ma commune dans une démarche collective visant à dynamiser la commune de Cépet."
         },
 
         {
             name: "Joachim SAHRAOUI",
-            role: "Étudiant en droit", 
+            role: "Étudiant en Droit Fiscal", 
             age: "21",
             order: 19,
             img: "./css/DSC01002R Portrait Joachim.webp", 
-            descShort: "Joachim SAHRAOUI - 21 ans - étudiant en droit Fiscal", 
+            descShort: "Joachim SAHRAOUI - 21 ans - Étudiant en Droit Fiscal", 
             desc: "Candidat engagé, animé par l’envie sincère de représenter et défendre les intérêts de chacun. Je crois en une action collective basée sur le respect, le dialogue et la justice. Mon objectif est simple : améliorer concrètement notre quotidien en proposant des idées utiles, réalistes et accessibles à tous. Je souhaite m’investir pleinement afin de porter la voix de celles et ceux qui veulent être entendus, favoriser la coopération et encourager des initiatives positives. Être élu pour moi n’est pas un titre mais une responsabilité, celle d’agir avec honnêteté, détermination et transparence."
         },
 
@@ -243,7 +243,7 @@ function initTeamSlider(isMobile) {
             order: 1,
             img: "./css/DSC00551R Portrait Jean-Michel.webp", 
             descShort: "Jean-Michel FOUGERAY – 56 ans – 3 enfants – Cadre Enedis", 
-            desc: "Installé à Cépet depuis près de 20 ans, j’ai très vite eu l’envie de m’investir et de servir notre village.<br><br>Elu Conseiller Municipal en 2015, Premier Maire-Adjoint de 2020 à décembre 2025 et Vice-Président sortant de la Communauté de Communes du Frontonnais, j’ai participé aux travaux menés par les équipes municipales et communautaires.<br><br>Fort de cette expérience de près de dix années d’expérience au sein du Conseil Municipal, nourri par de nombreux échanges avec les habitant.e.s et le tissu associatif du village, je suis convaincu qu’une nouvelle impulsion est aujourd’hui nécessaire pour Cépet en associant les Cépetoises et les Cépetois.<br><br>C’est dans cet esprit que je me présente aujourd’hui aux élections municipales de mars 2026, avec une équipe jeune, dynamique composée de candidates et de candidats investis et représentatifs de notre village, prêts à proposer, à agir et à rassembler. Ensemble, nous voulons préserver l’identité de Cépet, améliorer le cadre de vie et porter des projets utiles à toutes les générations.<br><br>Parce que je crois à la force du collectif, à l’écoute et au dialogue, je veux construire avec vous un avenir qui nous rassemble.<br><br>Le 15 mars 2026, j’invite les Cépetoises et les Cépetois à nous accorder leur confiance en votant pour la liste « Cépet, Un avenir qui nous rassemble » afin de construire ensemble un village dynamique, solidaire et résolument tourné vers l’avenir."
+            desc: "Installé à Cépet depuis près de 20 ans, j’ai très vite eu l’envie de m’investir et de servir notre village.<br><br>Elu Conseiller Municipal en 2015, Premier Maire-Adjoint de 2020 à décembre 2025 et Vice-Président sortant de la Communauté de Communes du Frontonnais, j’ai participé aux travaux menés par les équipes municipales et communautaires.<br><br>Fort de cette expérience de dix années au sein du Conseil Municipal, nourri par de nombreux échanges avec les habitant.e.s et le tissu associatif du village, je suis convaincu qu’une nouvelle impulsion est aujourd’hui nécessaire pour Cépet en associant les Cépetoises et les Cépetois.<br><br>C’est dans cet esprit que je me présente aujourd’hui aux élections municipales de mars 2026, avec une équipe jeune, dynamique composée de candidates et de candidats investis et représentatifs de notre village, prêts à proposer, à agir et à rassembler. Ensemble, nous voulons préserver l’identité de Cépet, améliorer le cadre de vie et porter des projets utiles à toutes les générations.<br><br>Parce que je crois à la force du collectif, à l’écoute et au dialogue, je veux construire avec vous un avenir qui nous rassemble.<br><br>Le 15 mars 2026, j’invite les Cépetoises et les Cépetois à nous accorder leur confiance en votant pour la liste « Cépet, Un avenir qui nous rassemble » afin de construire ensemble un village dynamique, solidaire et résolument tourné vers l’avenir."
         },
 
         {
@@ -252,7 +252,7 @@ function initTeamSlider(isMobile) {
             age: "49",
             order: 21,
             img: "./css/DSC00346R Portrait Sébastien C.webp", 
-            descShort: "Sébastien CASTEL – 49 ans – 2 enfants – Artisan poissonnier", 
+            descShort: "Sébastien CASTEL – 49 ans – 2 enfants – Artisan Poissonnier", 
             desc: "Artisan poissonnier, j’exerce mon activité professionnelle à Cépet depuis de nombreuses années, notamment à travers un service de livraison de proximité. Attaché à la ruralité et à la dimension humaine de la commune, je suis très attentif aux réalités du quotidien et aux besoins des habitants.<br><br>Mon parcours d’artisan m’a conduit à développer des valeurs fortes de travail, de rigueur et de proximité avec les clients. Cette expérience me confère une connaissance concrète des enjeux économiques locaux et de l’importance de services accessibles et pérennes pour maintenir la vitalité du village.<br><br>Attaché aux valeurs humaines, au dévouement et à l’intégrité, je désire m’engager au service de la commune afin de contribuer à la pérennisation des services publics, au soutien de l’activité économique locale et au renforcement du lien social à Cépet."
         }
     ];

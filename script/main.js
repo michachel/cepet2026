@@ -2,13 +2,42 @@
 // === Header & Burger ===
 function initHeader() {
     const header = document.getElementById('header');
-    window.addEventListener('scroll', () => {
-        header.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
     const burger = document.getElementById('burger');
     const nav = document.querySelector('.nav-links');
-    burger.addEventListener('click', () => nav.classList.toggle('open'));
+
+    window.addEventListener('scroll', () => {
+        header.classList.toggle('scrolled', window.scrollY > 50);
+        
+        // Ferme le menu au scroll (mobile)
+        nav.classList.remove('open');
+    });
+
+    // Toggle burger
+    burger.addEventListener('click', (e) => {
+        e.stopPropagation(); // empêche le clic de remonter au document
+        nav.classList.toggle('open');
+    });
+
+    // Clic hors menu (desktop + mobile)
+    document.addEventListener('click', (e) => {
+        if (!nav.contains(e.target) && !burger.contains(e.target)) {
+            nav.classList.remove('open');
+        }
+    });
+
+    // Touch hors menu (mobile)
+    document.addEventListener('touchstart', (e) => {
+        if (!nav.contains(e.target) && !burger.contains(e.target)) {
+            nav.classList.remove('open');
+        }
+    });
+
+    // Clic sur un item → ferme APRÈS le clic
+    nav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            nav.classList.remove('open');
+        });
+    });
 }
 
 // === Hero Slider ===

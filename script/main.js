@@ -470,7 +470,6 @@ function initContact()
     });
 }
 
-
 function initScrollTop()
 {
     const scrollTopBtn = document.getElementById('scrollTopBtn');
@@ -494,6 +493,29 @@ function initScrollTop()
 
 }
 
+function initProgramme()
+{
+    const programmeModal = document.getElementById('programmeModal');
+  const openProgrammeModal = document.getElementById('openProgrammeModal');
+  const closeProgrammeModal = document.getElementById('closeProgrammeModal');
+
+  openProgrammeModal.addEventListener('click', function (e) {
+    e.preventDefault();
+    programmeModal.style.display = 'block';
+  });
+
+  closeProgrammeModal.addEventListener('click', function () {
+    programmeModal.style.display = 'none';
+  });
+
+  // Fermeture en cliquant en dehors
+  window.addEventListener('click', function (e) {
+    if (e.target === programmeModal) {
+      programmeModal.style.display = 'none';
+    }
+  });
+}
+
 
 // === Initialisation ===
 document.addEventListener('DOMContentLoaded', () => {
@@ -505,5 +527,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initTeamSlider(isMobile);
     initGallery(isMobile);
     initContact();
+    initProgramme();
     initScrollTop();
 });

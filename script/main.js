@@ -380,6 +380,9 @@ function truncateText(text, maxLength) {
 
 function initGallery(isMobile) {
     const galleryImages = [
+        { src: "css/Invitation Consultation Habitant.e.s 17 Janvier 2026.jpg", thumb: "css/Invitation Consultation Habitant.e.s 17 Janvier 2026.jpg", alt: "Invitation Consultation Habitant.e.s 17 Janvier 2026" },
+        { src: "css/Questionnaire Jeunes 12 - 21 ans_page-0001.jpg", thumb: "css/Questionnaire Jeunes 12 - 21 ans_page-0001.jpg", alt: "Questionnaire Jeunes 12 - 21 ans - page 1" },
+        { src: "css/Questionnaire Jeunes 12 - 21 ans_page-0002.jpg", thumb: "css/Questionnaire Jeunes 12 - 21 ans_page-0002.jpg", alt: "Questionnaire Jeunes 12 - 21 ans - page 2" },
         { src: "css/meilleurs voeux.jpeg", thumb: "css/meilleurs voeux.jpeg", alt: "Meilleurs voeux 2026" },
         { src: "css/recto flyer 2025.jpg", thumb: "css/recto flyer 2025.jpg", alt: "recto flyer élection municipale 2025" },
         { src: "css/verso flyer 2025.jpg", thumb: "css/verso flyer 2025.jpg", alt: "verso  flyer élection municipale 2025" }

@@ -45,12 +45,14 @@ function initHeroSlider() {
     const slides = document.querySelectorAll('.slide');
     const dots = document.querySelectorAll('.dot');
     const heroText = document.getElementById('hero-text');
+    const hero = document.querySelector('.hero'); // conteneur du slider
     const texts = [
         { title: 'Élections Municipales du 15 mars 2026<br>CÉPET', subtitle: 'Cépet, un avenir qui nous rassemble', button: 'Avec la liste citoyenne conduite par Jean-Michel FOUGERAY', dataTarget: 'equipe' },
         { title: 'Ensemble, préparons l’avenir de notre village', subtitle: '', button: 'Nos engagements', dataTarget: 'programme' }
     ];
 
     let index = 0;
+    let interval;
 
     function showSlide(i) {
         slides.forEach((s, idx) => {
@@ -67,19 +69,60 @@ function initHeroSlider() {
         index = i;
     }
     
+    function nextSlide() {
+        showSlide((index + 1) % slides.length);
+    }
 
+    function prevSlide() {
+        showSlide((index - 1 + slides.length) % slides.length);
+    }
+
+    function resetInterval() {
+        clearInterval(interval);
+        interval = setInterval(nextSlide, 10000);
+    }
+
+    // Init
     showSlide(0);
-    setInterval(() => showSlide((index + 1) % slides.length), 10000);
+    interval = setInterval(nextSlide, 10000);
 
+
+     // Dots
     dots.forEach(dot => {
-        dot.addEventListener('click', () => showSlide(parseInt(dot.dataset.index)));
+        dot.addEventListener('click', () => {
+            showSlide(parseInt(dot.dataset.index));
+            resetInterval();
+        });
     });
 
+    // Bouton hero
     heroText.addEventListener('click', e => {
         const btn = e.target.closest('button');
         if (!btn) return;
-        const target = btn.dataset.target;
-        if (target) window.location.href = `index.html#${target}`;
+        window.location.href = `index.html#${btn.dataset.target}`;
+    });
+
+    // === SWIPE MOBILE ===
+    let startX = 0;
+    let endX = 0;
+    const swipeThreshold = 50; // px minimum
+
+    hero.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    hero.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+            if (diff > 0) {
+                nextSlide(); // swipe gauche
+            } else {
+                prevSlide(); // swipe droite
+            }
+            resetInterval();
+        }
     });
     
 }

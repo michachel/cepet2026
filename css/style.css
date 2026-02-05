@@ -613,6 +613,10 @@ section h2 {
     display: inline-block;
     color: #f13681;
 }
+
+.actualitesFacebook {
+    text-align: center;
+}
 /* Contact */
 .contact-section {
     text-align: center;

@@ -641,23 +641,20 @@ section h2 {
 
 .actu-important {
     display: flex;
-    align-items: flex-start;
-    gap: 16px;
+    flex-direction: column;
+    gap: 8px;
 }
 
 .actu-marker {
     position: relative;
     width: 60px;
     text-align: right;
-    font-size: 0.85rem;
-    color: #555;
-    font-weight: 600;
 }
 
 .actu-dot {
     position: absolute;
     right: -10px;
-    top: 4px;
+    top: 24px;
     width: 14px;
     height: 14px;
     border-radius: 50%;
@@ -667,9 +664,19 @@ section h2 {
 }
 
 .actu-date {
-    display: inline-block;
-    max-width: 60px;
+    display: block;
+    max-width: none;
     line-height: 1.2;
+    margin-bottom: 4px; /* petit espace au-dessus du bloc dot+image */
+    font-size: 0.85rem;
+    color: #555;
+    font-weight: 600;
+}
+
+.actu-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
 }
 
 .actu-card {

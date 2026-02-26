@@ -624,13 +624,74 @@ section h2 {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    position: relative;
+    padding-left: 70px;
+    text-align: left;
 }
 
-.actu-important img {
+.actus-importantes::before {
+    content: "";
+    position: absolute;
+    left: 32px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #e0e0e0;
+}
+
+.actu-important {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.actu-marker {
+    position: relative;
+    width: 60px;
+    text-align: right;
+    font-size: 0.85rem;
+    color: #555;
+    font-weight: 600;
+}
+
+.actu-dot {
+    position: absolute;
+    right: -10px;
+    top: 4px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #f13681;
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 3px rgba(241,54,129,0.25);
+}
+
+.actu-date {
+    display: inline-block;
+    max-width: 60px;
+    line-height: 1.2;
+}
+
+.actu-card {
+    flex: 1;
+}
+
+.actu-card img {
     width: 100%;
     display: block;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+@media (max-width: 768px) {
+    .actus-importantes {
+        padding-left: 55px;
+    }
+
+    .actu-marker {
+        width: 50px;
+        font-size: 0.8rem;
+    }
 }
 /* Contact */
 .contact-section {

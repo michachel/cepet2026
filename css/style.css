@@ -617,6 +617,21 @@ section h2 {
 .actualitesFacebook {
     text-align: center;
 }
+
+.actus-importantes {
+    max-width: 500px;
+    margin: 20px auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.actu-important img {
+    width: 100%;
+    display: block;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 /* Contact */
 .contact-section {
     text-align: center;

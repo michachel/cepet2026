@@ -500,6 +500,75 @@ document.getElementById('nextGallery').addEventListener('click', () => {
 renderGallery();
 }
 
+function initProgrammeGallery(isMobile) {
+    const programmeImages = [
+        { src: "css/programmesurlesite/1-Proposition 1.png", thumb: "css/programmesurlesite/1-Proposition 1.png", alt: "1-Proposition 1" },
+        { src: "css/programmesurlesite/2-Proposition 2.png", thumb: "css/programmesurlesite/2-Proposition 2.png", alt: "2-Proposition 2" },
+        { src: "css/programmesurlesite/3-Proposition 3.png", thumb: "css/programmesurlesite/3-Proposition 3.png", alt: "3-Proposition 3" },
+        { src: "css/programmesurlesite/4-Proposition 4.png", thumb: "css/programmesurlesite/4-Proposition 4.png", alt: "4-Proposition 4" },
+        { src: "css/programmesurlesite/5-Proposition 5.png", thumb: "css/programmesurlesite/5-Proposition 5.png", alt: "5-Proposition 5" },
+        { src: "css/programmesurlesite/6-Proposition 6.png", thumb: "css/programmesurlesite/6-Proposition 6.png", alt: "6-Proposition 6" },
+        { src: "css/programmesurlesite/7-Proposition 7.png", thumb: "css/programmesurlesite/7-Proposition 7.png", alt: "7-Proposition 7" },
+        { src: "css/programmesurlesite/8-Proposition 8.png", thumb: "css/programmesurlesite/8-Proposition 8.png", alt: "8-Proposition 8" },
+        { src: "css/programmesurlesite/9-Proposition 9.png", thumb: "css/programmesurlesite/9-Proposition 9.png", alt: "9-Proposition 9" },
+        { src: "css/programmesurlesite/10-Proposition 10.png", thumb: "css/programmesurlesite/10-Proposition 10.png", alt: "10-Proposition 10" },
+        { src: "css/programmesurlesite/11-Proposition 11.png", thumb: "css/programmesurlesite/11-Proposition 11.png", alt: "11-Proposition 11" },
+        { src: "css/programmesurlesite/12-Proposition 12.png", thumb: "css/programmesurlesite/12-Proposition 12.png", alt: "12-Proposition 12" },
+        { src: "css/programmesurlesite/13-Proposition 13.png", thumb: "css/programmesurlesite/13-Proposition 13.png", alt: "13-Proposition 13" },
+        { src: "css/programmesurlesite/14-Proposition 14.png", thumb: "css/programmesurlesite/14-Proposition 14.png", alt: "14-Proposition 14" },
+        { src: "css/programmesurlesite/15-Proposition 15.png", thumb: "css/programmesurlesite/15-Proposition 15.png", alt: "15-Proposition 15" },
+        { src: "css/programmesurlesite/16-Proposition 16.png", thumb: "css/programmesurlesite/16-Proposition 16.png", alt: "16-Proposition 16" },
+        { src: "css/programmesurlesite/17-Proposition 17.png", thumb: "css/programmesurlesite/17-Proposition 17.png", alt: "17-Proposition 17" },
+        { src: "css/programmesurlesite/18-Proposition 18.png", thumb: "css/programmesurlesite/18-Proposition 18.png", alt: "18-Proposition 18" },
+        { src: "css/programmesurlesite/19-Proposition 19.png", thumb: "css/programmesurlesite/19-Proposition 19.png", alt: "19-Proposition 19" },
+        { src: "css/programmesurlesite/20-Proposition 20.png", thumb: "css/programmesurlesite/20-Proposition 20.png", alt: "20-Proposition 20" },
+        { src: "css/programmesurlesite/21-Proposition 21.png", thumb: "css/programmesurlesite/21-Proposition 21.png", alt: "21-Proposition 21" },
+        { src: "css/programmesurlesite/22-Proposition 22.png", thumb: "css/programmesurlesite/22-Proposition 22.png", alt: "22-Proposition 22" },
+        { src: "css/programmesurlesite/23-Proposition 23.png", thumb: "css/programmesurlesite/23-Proposition 23.png", alt: "23-Proposition 23" },
+        { src: "css/programmesurlesite/24-Proposition 24.png", thumb: "css/programmesurlesite/24-Proposition 24.png", alt: "24-Proposition 24" },
+        { src: "css/programmesurlesite/25-Proposition 25.png", thumb: "css/programmesurlesite/25-Proposition 25.png", alt: "25-Proposition 25" },
+        { src: "css/programmesurlesite/26-Proposition 26.png", thumb: "css/programmesurlesite/26-Proposition 26.png", alt: "26-Proposition 26" }
+        // ajouter les autres images ici
+      ];
+
+    const programmeSlider = document.getElementById("programmeSlider");
+    let programmeIndex = 0;
+    const perSlide = isMobile ? 1 : 3; // nombre d'images par slide
+    const totalSlides = Math.ceil(programmeImages.length / perSlide);
+
+    function renderProgramme() {
+    let html = "";
+    for (let i = 0; i < programmeImages.length; i += perSlide) {
+        html += '<div class="programme-slide">';
+        programmeImages.slice(i, i + perSlide).forEach(img => {
+        html += `<a href="${img.src}" data-fancybox="programme" data-caption="${img.alt}">
+                    <img src="${img.thumb}" alt="${img.alt}">
+                </a>`;
+        });
+        html += '</div>';
+    }
+    programmeSlider.innerHTML = html;
+    updateProgrammeSlider();
+    }
+
+    function updateProgrammeSlider() {
+    programmeSlider.style.transform = `translateX(-${programmeIndex * 100}%)`;
+    }
+
+    document.getElementById('prevProgramme').addEventListener('click', () => {
+    programmeIndex = (programmeIndex - 1 + totalSlides) % totalSlides;
+    updateProgrammeSlider();
+    });
+
+    document.getElementById('nextProgramme').addEventListener('click', () => {
+    programmeIndex = (programmeIndex + 1) % totalSlides;
+    updateProgrammeSlider();
+    });
+
+
+    renderProgramme();
+}
+
 function initContact()
 {
     emailjs.init("H6BNibIlXuJ0F4ypL");
@@ -603,5 +672,6 @@ document.addEventListener('DOMContentLoaded', () => {
     initGallery(isMobile);
     initContact();
     initProgramme();
+    initProgrammeGallery(isMobile);
     initScrollTop();
 });

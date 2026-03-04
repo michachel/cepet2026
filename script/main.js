@@ -500,6 +500,11 @@ document.getElementById('nextGallery').addEventListener('click', () => {
 renderGallery();
 }
 
+
+function flipCard(id) {
+    document.getElementById(id).classList.toggle("flipped");
+}
+
 function initProgrammeGallery(isMobile) {
     const programmeImages = [
         { thumb: "css/programmesurlesite/1-Proposition 1.png", src: "css/programmesurlesite/Proposition 1 Texte.png", alt: "Proposition 1" },
@@ -537,18 +542,33 @@ function initProgrammeGallery(isMobile) {
     const totalSlides = Math.ceil(programmeImages.length / perSlide);
 
     function renderProgramme() {
-    let html = "";
-    for (let i = 0; i < programmeImages.length; i += perSlide) {
-        html += '<div class="programme-slide">';
-        programmeImages.slice(i, i + perSlide).forEach(img => {
-        html += `<a href="${img.src}" data-fancybox="programme" data-caption="${img.alt}">
-                    <img src="${img.thumb}" alt="${img.alt}">
-                </a>`;
-        });
-        html += '</div>';
-    }
-    programmeSlider.innerHTML = html;
-    updateProgrammeSlider();
+        let html = "";
+        for (let i = 0; i < programmeImages.length; i += perSlide) {
+            html += '<div class="programme-slide">';
+            
+            programmeImages.slice(i, i + perSlide).forEach((img, index) => {
+                const id = `card-${i}-${index}`;
+                html += `
+                <div class="programme-card" onclick="flipCard('${id}')">
+                    <div class="programme-card-inner" id="${id}">
+                        
+                        <div class="programme-card-front">
+                            <img src="${img.thumb}" alt="${img.alt}">
+                        </div>
+    
+                        <div class="programme-card-back">
+                            <img src="${img.src}" alt="${img.alt}">
+                        </div>
+    
+                    </div>
+                </div>`;
+            });
+    
+            html += '</div>';
+        }
+    
+        programmeSlider.innerHTML = html;
+        updateProgrammeSlider();
     }
 
     function updateProgrammeSlider() {

@@ -832,13 +832,6 @@ section h2 {
     transform: rotateY(180deg);
 }
 
-.programme-hint {
-    text-align: center;
-    font-size: 0.9em;
-    color: #777;
-    margin-top: 10px;
-}
-
 .programme-card-front .tap-indicator{
     width:32px;
 }
@@ -847,15 +840,14 @@ section h2 {
     position:absolute;
     top:15px;
     right:10px;
-
     width:32px;      /* taille réelle */
     height:auto;
 
     pointer-events:none;
 
     animation:tapFloat 2s ease-in-out infinite;
+    filter: invert(100%) brightness(200%);
 
-    filter: drop-shadow(0 0 6px rgba(255,255,255,0.6));
 }
 
 @keyframes tapGlow{

@@ -839,7 +839,7 @@ section h2 {
 .tap-indicator{
     position:absolute;
     top:15px;
-    right:10px;
+    right:20px;
     width:32px;      /* taille réelle */
     height:auto;
 

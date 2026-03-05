@@ -672,7 +672,6 @@ function initScrollTop()
 
 }
 
-
 // === Initialisation ===
 document.addEventListener('DOMContentLoaded', () => {
 

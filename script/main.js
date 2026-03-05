@@ -550,7 +550,7 @@ function initProgrammeGallery(isMobile) {
 
     const programmeSlider = document.getElementById("programmeSlider");
     let programmeIndex = 0;
-    const perSlide = isMobile ? 1 : 3; // nombre d'images par slide
+    const perSlide = isMobile ? 1 : 2; // nombre d'images par slide
     const totalSlides = Math.ceil(programmeImages.length / perSlide);
 
     function renderProgramme() {

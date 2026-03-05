@@ -501,8 +501,20 @@ renderGallery();
 }
 
 
-function flipCard(id) {
-    document.getElementById(id).classList.toggle("flipped");
+function flipCard(id, event) {
+    const card = document.getElementById(id);
+    card.classList.toggle("flipped");
+
+    const ripple = document.createElement("span");
+    ripple.classList.add("programme-ripple");
+
+    const rect = card.getBoundingClientRect();
+    ripple.style.left = event.clientX - rect.left + "px";
+    ripple.style.top = event.clientY - rect.top + "px";
+
+    card.appendChild(ripple);
+
+    setTimeout(() => ripple.remove(), 600);
 }
 
 function initProgrammeGallery(isMobile) {
@@ -549,11 +561,14 @@ function initProgrammeGallery(isMobile) {
             programmeImages.slice(i, i + perSlide).forEach((img, index) => {
                 const id = `card-${i}-${index}`;
                 html += `
-                <div class="programme-card" onclick="flipCard('${id}')">
+                <div class="programme-card" onclick="flipCard('${id}', event)">
                     <div class="programme-card-inner" id="${id}">
                         
                         <div class="programme-card-front">
                             <img src="${img.thumb}" alt="${img.alt}">
+
+                            <img class="tap-indicator" src="css/tap.png" alt="cliquer">
+
                         </div>
     
                         <div class="programme-card-back">

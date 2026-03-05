@@ -800,6 +800,20 @@ section h2 {
     backface-visibility: hidden;
 }
 
+.programme-card-front {
+    position: relative;
+}
+
+.programme-click-icon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 22px;
+    transform: rotate(-25deg);
+    pointer-events: none;
+    opacity: 0.85;
+}
+
 .programme-card-front img,
 .programme-card-back img {
     width: 100%;
@@ -823,6 +837,55 @@ section h2 {
     font-size: 0.9em;
     color: #777;
     margin-top: 10px;
+}
+
+.programme-card-front .tap-indicator{
+    width:32px;
+}
+
+.tap-indicator{
+    position:absolute;
+    top:15px;
+    right:10px;
+
+    width:32px;      /* taille réelle */
+    height:auto;
+
+    pointer-events:none;
+
+    animation:tapFloat 2s ease-in-out infinite;
+
+    filter: drop-shadow(0 0 6px rgba(255,255,255,0.6));
+}
+
+@keyframes tapGlow{
+
+    0%{ filter: drop-shadow(0 0 4px rgba(255,255,255,0.4)); }
+
+    50%{ filter: drop-shadow(0 0 12px rgba(255,255,255,0.9)); }
+
+    100%{ filter: drop-shadow(0 0 4px rgba(255,255,255,0.4)); }
+
+}
+
+@keyframes tapFloat{
+
+    0%{
+        transform:translateY(0px) scale(1);
+    }
+
+    40%{
+        transform:translateY(-3px) scale(1.05);
+    }
+
+    60%{
+        transform:translateY(-3px) scale(1.05);
+    }
+
+    100%{
+        transform:translateY(0px) scale(1);
+    }
+
 }
 
 /* Gallery */
